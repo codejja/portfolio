@@ -11,7 +11,7 @@ export default function Footer() {
         </p>
 
         <a
-          href="https://github.com/oma-kayttajanimi"
+          href="https://github.com/codejja"
           target="_blank"
           rel="noopener noreferrer"
           className="font-medium transition hover:text-blue-600"

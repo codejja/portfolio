@@ -2,15 +2,16 @@ import Image from "next/image";
 
 export default function Hero() {
 
-  const skills = [
-    "React",
-    "Next.js",
-    "Tailwind CSS",
-    "JavaScript",
-    "GitHub",
+   const skills = [
+    "Frontend",
+    "Cloud",
+    "Analytics",
+    "Automation",
+    "UI/UX Design",
   ];
 
-return (
+  return (
+
   <section className="relative overflow-hidden rounded-3xl border border-blue-100 bg-gradient-to-br from-white via-blue-50 to-indigo-50 px-6 py-14 shadow-sm">
 
     <div className="grid items-center gap-14 md:grid-cols-2">
@@ -25,13 +26,11 @@ return (
         </h1>
 
         <p className="mt-6 max-w-2xl text-xl font-medium text-gray-800 md:text-2xl">
-          IT-alan opiskelija, joka rakentaa käytännönläheisiä
-          web-projekteja moderneilla frontend-teknologioilla.
+          IT-alan opiskelija, joka yhdistää web-kehityksen, analytiikan ja pilvipalvelut käytännön ongelmanratkaisuun.
         </p>
 
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-gray-600">
-          Etsin harjoittelupaikkaa, jossa pääsen kehittämään osaamistani
-          Reactin, Next.js:n, käyttöliittymien ja tiimityöskentelyn parissa.
+          Kehitän osaamistani frontendin, data-analytiikan ja modernien web-teknologioiden parissa sekä etsin harjoittelupaikkaa IT-alalta.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-2">

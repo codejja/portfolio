@@ -30,7 +30,7 @@ export default function ContactPage() {
                 href="mailto:oma.sahkoposti@example.com"
                 className="mt-2 block text-lg font-semibold text-gray-950 transition hover:text-blue-600"
               >
-                oma.sahkoposti@example.com
+                jannekujala1996@gmail.com
               </a>
             </div>
 
@@ -40,12 +40,12 @@ export default function ContactPage() {
               </p>
 
               <a
-                href="https://github.com/oma-kayttajanimi"
+                href="https://github.com/codejja"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 block text-lg font-semibold text-gray-950 transition hover:text-blue-600"
               >
-                github.com/oma-kayttajanimi
+                github.com/codejja
               </a>
             </div>
 
@@ -55,12 +55,12 @@ export default function ContactPage() {
               </p>
 
               <a
-                href="https://linkedin.com/in/oma-profiili"
+                href="https://linkedin.com/in/jannekujala"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 block text-lg font-semibold text-gray-950 transition hover:text-blue-600"
               >
-                linkedin.com/in/oma-profiili
+                linkedin.com/in/jannekujala
               </a>
             </div>
           </div>

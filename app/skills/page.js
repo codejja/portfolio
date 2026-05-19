@@ -1,18 +1,91 @@
 const skillGroups = [
   {
-    title: "Frontend",
-    description: "Käyttöliittymien ja responsiivisten sivujen rakentaminen.",
-    skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS"],
+    title: "Web Development",
+    description:
+      "Modernien verkkosivujen ja käyttöliittymien rakentaminen.",
+    skills: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "WordPress",
+      "Figma",
+      "Responsive Design",
+    ],
   },
+
   {
-    title: "Työkalut",
-    description: "Kehitystyössä käyttämäni työkalut ja versionhallinta.",
-    skills: ["Git", "GitHub", "VS Code", "npm"],
+    title: "Backend & Databases",
+    description:
+      "Backend-teknologiat, tietokannat ja rajapintojen perusteet.",
+    skills: [
+      "PHP",
+      "MySQL",
+      "APIs",
+    ],
   },
+
   {
-    title: "Opettelussa",
-    description: "Teknologioita ja aiheita, joita kehitan parhaillaan.",
-    skills: ["API:t", "Node.js", "Tietokannat", "Testaus"],
+    title: "Cloud & Analytics",
+    description:
+      "Pilvipalvelut, dataintegraatiot ja analytiikkaratkaisut.",
+    skills: [
+      "Azure Cloud",
+      "Azure SQL",
+      "Azure Data Factory",
+      "ETL Pipelines",
+      "Logic Apps",
+      "Power BI",
+      "Data Analytics",
+      "Exploratory Data Analysis",
+      "AWS",
+    ],
+  },
+
+  {
+    title: "Business & Automation",
+    description:
+      "Microsoft-ekosysteemi, automaatio ja liiketoimintaprosessit.",
+    skills: [
+      "Microsoft 365",
+      "SharePoint",
+      "Power Automate",
+      "Power Apps",
+      "UiPath",
+      "Requirement Specification",
+      "Software Design",
+    ],
+  },
+
+  {
+    title: "Development Tools & Workflow",
+    description:
+      "Ohjelmistokehityksen työkalut, projektinhallinta ja kehitysprosessit.",
+    skills: [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "Docker",
+      "Linux",
+      "Jira",
+      "Confluence",
+      "Scrum",
+      "Agile",
+    ],
+  },
+
+  {
+    title: "Currently Learning",
+    description:
+      "Teknologioita ja aiheita, joita kehitan parhaillaan.",
+    skills: [
+      "Node.js",
+      "Software Testing",
+      "Backend Development",
+      "Full Stack Development",
+    ],
   },
 ];
 

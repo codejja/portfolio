@@ -20,7 +20,7 @@ export default function CVPage() {
               <div className="flex flex-col gap-3 border-b border-gray-100 pb-6 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <h3 className="text-lg font-semibold">
-                    HAMK — Tietojenkäsittely
+                    HAMK — Tietojenkäsittely (AMK)
                   </h3>
                   <p className="mt-1 text-gray-600">
                     Muuntokoulutus, IT-tradenomi
@@ -34,7 +34,7 @@ export default function CVPage() {
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <h3 className="text-lg font-semibold">LAB — Liiketalous</h3>
+                  <h3 className="text-lg font-semibold">LAB — Liiketalous (AMK)</h3>
                   <p className="mt-1 text-gray-600">Tradenomi</p>
                 </div>
 
@@ -52,26 +52,19 @@ export default function CVPage() {
               <div className="flex flex-col gap-3 border-b border-gray-100 pb-6 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <h3 className="text-lg font-semibold">
-                    Lisää työnimike tähän
+                    Ratkaisuasiantuntija
                   </h3>
-                  <p className="mt-1 text-gray-600">Yritys / organisaatio</p>
+                  <p className="mt-1 text-gray-600">Kela</p>
                   <p className="mt-3 leading-relaxed text-gray-600">
-                    Lyhyt kuvaus työtehtävistä, vastuista ja opituista asioista.
+                    Asiantuntijatyötä työttömyysturvaetuuksien parissa. Työssä korostuu tiedon analysointi, prosessien hallinta, ongelmanratkaisu sekä erilaisten tietojärjestelmien käyttö asiakastilanteiden ratkaisemiseksi.
                   </p>
                 </div>
 
                 <span className="w-fit rounded-full bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700">
-                  202X–202X
+                  05/2020–
                 </span>
               </div>
-
-              <div>
-                <h3 className="text-lg font-semibold">
-                  Harjoittelu / projekti / muu kokemus
-                </h3>
-                <p className="mt-1 text-gray-600">Lisää tarvittaessa</p>
               </div>
-            </div>
           </section>
         </div>
 
