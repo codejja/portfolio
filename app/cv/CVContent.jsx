@@ -159,54 +159,52 @@ export default function CVContent() {
   return (
     <main className="mx-auto max-w-5xl px-6 py-16">
       <section className="mb-12">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400">
-          {t.overline}
-        </p>
-
-        <h1 className="text-5xl font-black tracking-tight text-gray-950 dark:text-white">
+        <h1 className="font-heading text-7xl font-black tracking-tighter text-accent-600 md:text-8xl dark:text-accent-400">
           {t.heading}
         </h1>
 
-        <DownloadCvButton />
+        <div className="mt-6">
+          <DownloadCvButton />
+        </div>
       </section>
 
-      <div className="grid gap-8 md:grid-cols-3">
-        <div className="space-y-8 md:col-span-2">
-          <section className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-            <h2 className="text-2xl font-bold text-gray-950 dark:text-white">{t.educationHeading}</h2>
+      <div className="grid gap-12 border-t border-stone-200 pt-12 dark:border-stone-800 md:grid-cols-3">
+        <div className="space-y-12 md:col-span-2">
+          <section>
+            <h2 className="text-2xl font-bold text-stone-950 dark:text-white">{t.educationHeading}</h2>
 
-            <ol className="relative mt-8 space-y-8 border-l-2 border-blue-200 pl-8 dark:border-blue-900/50">
+            <ol className="relative mt-8 space-y-8 border-l-2 border-accent-200 pl-8 dark:border-accent-900/50">
               {t.education.map((item) => (
                 <li key={item.title} className="relative">
-                  <span className="absolute -left-[41px] top-1.5 h-3 w-3 rounded-full bg-blue-600 ring-4 ring-white dark:ring-gray-800" />
+                  <span className="absolute -left-[41px] top-1.5 h-3 w-3 rounded-full bg-accent-600 ring-4 ring-stone-50 dark:ring-stone-950" />
 
-                  <span className="inline-block rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 dark:bg-blue-950 dark:text-blue-300">
+                  <span className="font-mono text-xs text-accent-600 dark:text-accent-400">
                     {item.date}
                   </span>
 
                   <h3 className="mt-2 text-lg font-semibold dark:text-white">{item.title}</h3>
-                  <p className="mt-1 text-gray-600 dark:text-gray-400">{item.institution}</p>
-                  <p className="mt-1 text-sm text-gray-500 dark:text-gray-500">{item.extra}</p>
+                  <p className="mt-1 text-stone-600 dark:text-stone-400">{item.institution}</p>
+                  <p className="mt-1 text-sm text-stone-500 dark:text-stone-500">{item.extra}</p>
                 </li>
               ))}
             </ol>
           </section>
 
-          <section className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-            <h2 className="text-2xl font-bold text-gray-950 dark:text-white">{t.workHeading}</h2>
+          <section>
+            <h2 className="text-2xl font-bold text-stone-950 dark:text-white">{t.workHeading}</h2>
 
-            <ol className="relative mt-8 space-y-8 border-l-2 border-gray-200 pl-8 dark:border-gray-700">
+            <ol className="relative mt-8 space-y-8 border-l-2 border-stone-200 pl-8 dark:border-stone-700">
               {t.work.map((item) => (
                 <li key={item.title} className="relative">
-                  <span className="absolute -left-[41px] top-1.5 h-3 w-3 rounded-full bg-gray-500 ring-4 ring-white dark:bg-gray-400 dark:ring-gray-800" />
+                  <span className="absolute -left-[41px] top-1.5 h-3 w-3 rounded-full bg-stone-400 ring-4 ring-stone-50 dark:bg-stone-500 dark:ring-stone-950" />
 
-                  <span className="inline-block rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-700 dark:bg-gray-700 dark:text-gray-300">
+                  <span className="font-mono text-xs text-stone-500 dark:text-stone-400">
                     {item.date}
                   </span>
 
                   <h3 className="mt-2 text-lg font-semibold dark:text-white">{item.title}</h3>
-                  <p className="mt-1 text-gray-600 dark:text-gray-400">{item.company}</p>
-                  <p className="mt-3 leading-relaxed text-gray-600 dark:text-gray-400">
+                  <p className="mt-1 text-stone-600 dark:text-stone-400">{item.company}</p>
+                  <p className="mt-3 leading-relaxed text-stone-600 dark:text-stone-400">
                     {item.description}
                   </p>
                 </li>
@@ -215,19 +213,19 @@ export default function CVContent() {
           </section>
         </div>
 
-        <aside className="space-y-8">
-          <section className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-            <h2 className="text-xl font-bold text-gray-950 dark:text-white">{t.languagesHeading}</h2>
+        <aside>
+          <section>
+            <h2 className="text-xl font-bold text-stone-950 dark:text-white">{t.languagesHeading}</h2>
 
-            <div className="mt-5 space-y-4">
-              <div className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3 dark:bg-gray-700/50">
-                <span className="font-medium text-gray-900 dark:text-gray-100">{t.finnish}</span>
-                <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">{t.nativeLanguage}</span>
+            <div className="mt-5 divide-y divide-stone-200 dark:divide-stone-800">
+              <div className="flex items-center justify-between py-3 first:pt-0">
+                <span className="font-medium text-stone-900 dark:text-stone-100">{t.finnish}</span>
+                <span className="font-mono text-xs text-accent-600 dark:text-accent-400">{t.nativeLanguage}</span>
               </div>
 
-              <div className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3 dark:bg-gray-700/50">
-                <span className="font-medium text-gray-900 dark:text-gray-100">{t.english}</span>
-                <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">{t.goodLevel}</span>
+              <div className="flex items-center justify-between py-3 last:pb-0">
+                <span className="font-medium text-stone-900 dark:text-stone-100">{t.english}</span>
+                <span className="font-mono text-xs text-accent-600 dark:text-accent-400">{t.goodLevel}</span>
               </div>
             </div>
           </section>

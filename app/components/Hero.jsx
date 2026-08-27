@@ -7,19 +7,25 @@ import { useLanguage } from "../context/LanguageContext";
 const text = {
   fi: {
     label: "Portfolio",
-    tagline:
-      "IT-alan opiskelija, joka yhdistää web-kehityksen, analytiikan ja pilvipalvelut käytännön ongelmanratkaisuun.",
-    description:
-      "Kehitän osaamistani frontendin, data-analytiikan ja modernien web-teknologioiden parissa sekä etsin harjoittelupaikkaa IT-alalta.",
+    role: "IT Student · Web Development & AI Curious",
+    description: [
+      "Opiskelen tietojenkäsittelyä HAMK:ssa ja tykkään rakentaa asioita, jotka oikeasti ratkaisevat jonkun ongelman, verkkosivuista data-analytiikkaan ja pilvipalveluihin. Eniten minua kiinnostaa frontend-kehitys: se hetki, kun rakenne ja koodi muuttuvat joksikin, mitä oikea ihminen voi käyttää.",
+      "Olen opetellut Reactia, Next.js:ää, JavaScriptiä, Tailwind CSS:ää ja responsiivista suunnittelua tekemällä: toteuttamalla omia projekteja, opiskelemalla uusia teknologioita käytännössä ja hiomalla tätä portfoliota koko ajan vähän pidemmälle.",
+      "Tavoitteenani on päästä työskentelemään oikeiden projektien parissa, oppia kokeneemmilta ja kasvaa ohjelmistokehittäjänä osana tiimiä.",
+      "Vapaa-ajalla minut löytää yleensä maantiepyöräilemästä, kuntosalilta tai pelaamasta sulkapalloa tai padelia.",
+    ],
     viewProjects: "Katso projektit",
     viewCv: "Katso CV",
   },
   en: {
     label: "Portfolio",
-    tagline:
-      "IT student combining web development, analytics, and cloud services to solve real-world problems.",
-    description:
-      "I'm developing my skills in frontend development, data analytics, and modern web technologies, and I'm looking for an internship in the IT industry.",
+    role: "IT Student · Web Development & AI Curious",
+    description: [
+      "I'm studying Business Information Technology at HAMK, and I like building things that actually solve someone's problem, from websites to data analytics and cloud services. What interests me most is frontend development: that moment when structure and code turn into something a real person can actually use.",
+      "I've learned React, Next.js, JavaScript, Tailwind CSS, and responsive design by doing: developing my own projects, learning new technologies hands-on, and continuously pushing this portfolio a little further.",
+      "My goal is to work on real projects, learn from people more experienced than me, and grow as a software developer as part of a team.",
+      "In my spare time, you can usually find me road cycling, at the gym, or playing badminton or padel.",
+    ],
     viewProjects: "View projects",
     viewCv: "View CV",
   },
@@ -29,80 +35,64 @@ export default function Hero() {
   const { lang } = useLanguage();
   const t = text[lang];
 
-  const skills = [
-    "Frontend",
-    "Cloud",
-    "Analytics",
-    "Automation",
-    "UI/UX Design",
-  ];
+  const skills = ["Frontend", "Cloud", "Analytics", "Automation", "UI/UX Design"];
 
   return (
+    <section className="py-6">
+      <div className="grid items-center gap-14 md:grid-cols-2">
+        <div>
+          <p className="mb-4 font-mono text-sm text-accent-600 dark:text-accent-400">
+            // {t.label}
+          </p>
 
-  <section className="relative overflow-hidden rounded-3xl border border-blue-100 bg-gradient-to-br from-white via-blue-50 to-indigo-50 px-6 py-14 shadow-sm dark:border-blue-900/40 dark:from-gray-900 dark:via-gray-900 dark:to-indigo-950">
+          <h1 className="font-heading max-w-4xl text-4xl font-black tracking-tight text-stone-950 md:text-6xl dark:text-white">
+            Janne Kujala
+          </h1>
 
-    <div className="grid items-center gap-14 md:grid-cols-2">
+          <p className="font-heading mt-2 text-lg font-bold text-accent-600 md:text-xl dark:text-accent-400">
+            {t.role}
+          </p>
 
-      <div>
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400">
-          {t.label}
-        </p>
+          <div className="mt-4 max-w-2xl space-y-4 text-base leading-relaxed text-stone-600 md:text-lg dark:text-stone-400">
+            {t.description.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </div>
 
-        <h1 className="max-w-4xl text-5xl font-black tracking-tight text-gray-950 md:text-7xl dark:text-white">
-          Janne Kujala
-        </h1>
+          <p className="mt-6 font-mono text-sm text-stone-500 dark:text-stone-500">
+            {skills.join("  ·  ")}
+          </p>
 
-        <p className="mt-6 max-w-2xl text-xl font-medium text-gray-800 md:text-2xl dark:text-gray-200">
-          {t.tagline}
-        </p>
-
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-          {t.description}
-        </p>
-
-        <div className="mt-8 flex flex-wrap gap-2">
-          {skills.map((skill) => (
-            <span
-              key={skill}
-              className="rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300"
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="/projects"
+              className="rounded bg-accent-600 px-7 py-3 text-center font-semibold text-white transition hover:bg-accent-700"
             >
-              {skill}
-            </span>
-          ))}
+              {t.viewProjects}
+            </Link>
+
+            <Link
+              href="/cv"
+              className="rounded border border-stone-300 px-7 py-3 text-center font-semibold text-stone-800 transition hover:border-accent-600 hover:text-accent-600 dark:border-stone-700 dark:text-stone-200 dark:hover:border-accent-400 dark:hover:text-accent-400"
+            >
+              {t.viewCv}
+            </Link>
+          </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-          <Link
-            href="/projects"
-            className="rounded-full bg-blue-600 px-7 py-3 text-center font-semibold text-white shadow-sm hover:bg-blue-700 transition"
-          >
-            {t.viewProjects}
-          </Link>
-
-          <Link
-            href="/cv"
-            className="rounded-full border border-gray-300 bg-white px-7 py-3 text-center font-semibold text-gray-800 hover:border-blue-600 hover:text-blue-600 transition dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:border-blue-500 dark:hover:text-blue-400"
-          >
-            {t.viewCv}
-          </Link>
-        </div>
-      </div>
-
-      <div className="flex justify-center">
-        <div className="relative h-[320px] w-[320px] overflow-hidden rounded-3xl border border-gray-200 shadow-xl dark:border-gray-700">
-
-          <Image
-            src="/images/janne.png"
-            alt="Janne Kujala"
-            fill
-            className="object-cover"
-            priority
-          />
-
+        <div className="flex justify-center">
+          <div className="relative h-[320px] w-[320px] overflow-hidden">
+            <Image
+              src="/images/Profiilikuva.jpg"
+              alt="Janne Kujala"
+              fill
+              sizes="320px"
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
       </div>
-
-    </div>
-  </section>
-);
+    </section>
+  );
 }

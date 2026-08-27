@@ -7,12 +7,12 @@ const content = {
     overline: "Contact",
     heading: "Yhteystiedot",
     intro:
-      "Olen kiinnostunut harjoittelupaikoista, junior-tason mahdollisuuksista ja projekteista, joissa pääsen kehittämään osaamistani käytännössä.",
+      "Jos sinulla on harjoittelupaikka, junior-rooli tai projekti, jossa pääsisin oppimaan käytännössä — laita viestiä, jutellaan.",
     getInTouch: "Ota yhteyttä",
     email: "Sähköposti",
     seekingHeading: "Etsin harjoittelupaikkaa",
     seekingText:
-      "Tavoitteenani on päästä työskentelemään oikeiden projektien parissa, oppia kokeneemmilta kehittäjiltä ja kasvaa ohjelmistokehittäjänä.",
+      "Haluan päästä tekemään oikeita projekteja, oppia kokeneemmilta ja kasvaa vähän kerrallaan paremmaksi kehittäjäksi.",
     interestsHeading: "Kiinnostuksen kohteet",
     interests: [
       "Frontend-kehitys",
@@ -25,12 +25,12 @@ const content = {
     overline: "Contact",
     heading: "Contact",
     intro:
-      "I'm interested in internships, junior-level opportunities, and projects where I can develop my skills hands-on.",
+      "If you've got an internship, a junior role, or a project where I could learn hands-on — get in touch, let's talk.",
     getInTouch: "Get in touch",
     email: "Email",
     seekingHeading: "Looking for an internship",
     seekingText:
-      "My goal is to work on real projects, learn from more experienced developers, and grow as a software developer.",
+      "I want to work on real projects, learn from people who've been doing this longer, and grow into a better developer one step at a time.",
     interestsHeading: "Areas of interest",
     interests: [
       "Frontend development",
@@ -48,39 +48,31 @@ export default function ContactContent() {
   return (
     <main className="mx-auto max-w-5xl px-6 py-16">
       <section className="mb-12">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400">
-          {t.overline}
-        </p>
-
-        <h1 className="text-5xl font-black tracking-tight text-gray-950 dark:text-white">
+        <h1 className="font-heading text-7xl font-black tracking-tighter text-accent-600 md:text-8xl dark:text-accent-400">
           {t.heading}
         </h1>
-
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-          {t.intro}
-        </p>
       </section>
 
-      <section className="grid gap-6 md:grid-cols-2">
-        <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-          <h2 className="text-2xl font-bold text-gray-950 dark:text-white">{t.getInTouch}</h2>
+      <section className="grid gap-12 border-t border-stone-200 pt-12 dark:border-stone-800 md:grid-cols-2">
+        <div>
+          <h2 className="text-2xl font-bold text-stone-950 dark:text-white">{t.getInTouch}</h2>
 
-          <div className="mt-6 space-y-5">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+          <div className="mt-6 divide-y divide-stone-200 dark:divide-stone-800">
+            <div className="py-4 first:pt-0">
+              <p className="font-mono text-xs text-accent-600 dark:text-accent-400">
                 {t.email}
               </p>
 
               <a
                 href="mailto:jannekujala1996@gmail.com"
-                className="mt-2 block text-lg font-semibold text-gray-950 transition hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
+                className="mt-1 block text-lg font-semibold text-stone-950 transition hover:text-accent-600 dark:text-white dark:hover:text-accent-400"
               >
                 jannekujala1996@gmail.com
               </a>
             </div>
 
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+            <div className="py-4">
+              <p className="font-mono text-xs text-accent-600 dark:text-accent-400">
                 GitHub
               </p>
 
@@ -88,14 +80,14 @@ export default function ContactContent() {
                 href="https://github.com/codejja"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 block text-lg font-semibold text-gray-950 transition hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
+                className="mt-1 block text-lg font-semibold text-stone-950 transition hover:text-accent-600 dark:text-white dark:hover:text-accent-400"
               >
                 github.com/codejja
               </a>
             </div>
 
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+            <div className="py-4 last:pb-0">
+              <p className="font-mono text-xs text-accent-600 dark:text-accent-400">
                 LinkedIn
               </p>
 
@@ -103,7 +95,7 @@ export default function ContactContent() {
                 href="https://linkedin.com/in/jannekujala"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 block text-lg font-semibold text-gray-950 transition hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
+                className="mt-1 block text-lg font-semibold text-stone-950 transition hover:text-accent-600 dark:text-white dark:hover:text-accent-400"
               >
                 linkedin.com/in/jannekujala
               </a>
@@ -111,24 +103,20 @@ export default function ContactContent() {
           </div>
         </div>
 
-        <div className="rounded-2xl bg-blue-600 p-8 text-white shadow-lg dark:bg-blue-700">
-          <h2 className="text-2xl font-bold">{t.seekingHeading}</h2>
+        <div className="border-l-2 border-accent-600 pl-6 dark:border-accent-400">
+          <h2 className="text-2xl font-bold text-stone-950 dark:text-white">{t.seekingHeading}</h2>
 
-          <p className="mt-4 leading-relaxed text-blue-100">
+          <p className="mt-4 leading-relaxed text-stone-600 dark:text-stone-400">
             {t.seekingText}
           </p>
 
-          <div className="mt-8 rounded-2xl bg-white/10 p-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-100">
-              {t.interestsHeading}
-            </p>
+          <p className="mt-6 font-mono text-xs text-accent-600 dark:text-accent-400">
+            {t.interestsHeading}
+          </p>
 
-            <ul className="mt-4 space-y-2 text-white">
-              {t.interests.map((interest) => (
-                <li key={interest}>{interest}</li>
-              ))}
-            </ul>
-          </div>
+          <p className="mt-2 text-sm text-stone-600 dark:text-stone-400">
+            {t.interests.join("  ·  ")}
+          </p>
         </div>
       </section>
     </main>

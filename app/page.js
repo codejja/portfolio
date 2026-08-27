@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Hero from "./components/Hero";
-import About from "./components/About";
 import { useLanguage } from "./context/LanguageContext";
 
 const text = {
@@ -41,60 +40,25 @@ export default function Home() {
   const t = text[lang];
 
   return (
-    <main className="max-w-5xl mx-auto px-6 py-16 space-y-24">
+    <main className="max-w-5xl mx-auto px-6 py-16 space-y-10">
       <Hero />
-      <About />
 
-      <section className="grid md:grid-cols-2 gap-6">
-        <Link
-          href="/projects"
-          className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
-        >
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400">
-          {t.explore}
-          </p>
-          <h2 className="text-2xl font-semibold mb-2 dark:text-white">{t.projectsTitle}</h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            {t.projectsText}
-          </p>
-          <span className="mt-4 inline-block font-semibold text-blue-600 dark:text-blue-400">
-            {t.readMore}
-          </span>
-        </Link>
+      <section className="rounded bg-accent-600 px-6 py-8 text-center text-white dark:bg-accent-700">
+        <h2 className="text-2xl font-bold">
+          {t.ctaTitle}
+        </h2>
+
+        <p className="mx-auto mt-3 max-w-2xl text-sm text-accent-100">
+          {t.ctaText}
+        </p>
 
         <Link
-          href="/skills"
-          className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
+          href="/contact"
+          className="mt-5 inline-block rounded border border-white px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-white hover:text-accent-700"
         >
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400">
-          {t.explore}
-          </p>
-          <h2 className="text-2xl font-semibold mb-2 dark:text-white">{t.skillsTitle}</h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            {t.skillsText}
-          </p>
-          <span className="mt-4 inline-block font-semibold text-blue-600 dark:text-blue-400">
-          {t.readMore}
-          </span>
+          {t.ctaButton}
         </Link>
       </section>
-
-      <section className="rounded-2xl bg-blue-600 px-6 py-12 text-center text-white shadow-lg dark:bg-blue-700">
-  <h2 className="text-3xl font-bold">
-    {t.ctaTitle}
-  </h2>
-
-  <p className="mx-auto mt-4 max-w-2xl text-blue-100">
-    {t.ctaText}
-  </p>
-
-  <Link
-    href="/contact"
-    className="mt-7 inline-block rounded-full bg-white px-7 py-3 font-semibold text-blue-700 hover:bg-blue-50 transition"
-  >
-    {t.ctaButton}
-  </Link>
-</section>
     </main>
   );
 }

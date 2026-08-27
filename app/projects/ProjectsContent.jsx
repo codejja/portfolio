@@ -17,7 +17,7 @@ const content = {
         description:
           "Oma portfolio-sivustoni, jonka tarkoitus on esitellä osaamistani, projektejani ja taustaani työnhakua varten.",
         technologies: ["Next.js", "React", "Tailwind CSS"],
-        githubUrl: "https://github.com/oma-kayttajanimi/portfolio",
+        githubUrl: "https://github.com/codejja/portfolio26",
         liveUrl: "#",
       },
       {
@@ -72,7 +72,7 @@ const content = {
         description:
           "My own portfolio website, built to showcase my skills, projects, and background for my job search.",
         technologies: ["Next.js", "React", "Tailwind CSS"],
-        githubUrl: "https://github.com/oma-kayttajanimi/portfolio",
+        githubUrl: "https://github.com/codejja/portfolio26",
         liveUrl: "#",
       },
       {
@@ -122,47 +122,47 @@ export default function ProjectsContent() {
   return (
     <main className="mx-auto max-w-5xl px-6 py-16">
       <section className="mb-12">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400">
-          {t.overline}
-        </p>
-
-        <h1 className="text-5xl font-black tracking-tight text-gray-950 dark:text-white">
+        <h1 className="font-heading text-7xl font-black tracking-tighter text-accent-600 md:text-8xl dark:text-accent-400">
           {t.heading}
         </h1>
-
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-          {t.intro}
-        </p>
       </section>
 
-      <section className="grid gap-6">
-        {t.projects.map((project) => (
-          <article
-            key={project.title}
-            className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-700 dark:bg-gray-800"
-          >
-            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-              <div>
-                <p className="mb-3 text-sm font-semibold text-blue-600 dark:text-blue-400">
-                  {project.status}
-                </p>
+      <section className="divide-y divide-stone-200 border-t border-stone-200 dark:divide-stone-800 dark:border-stone-800">
+        {t.projects.map((project, index) => (
+          <article key={project.title} className="py-6">
+            <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+              <div className="flex gap-4">
+                <span className="font-heading shrink-0 text-2xl font-bold leading-none text-accent-200 dark:text-accent-900/70">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
 
-                <h2 className="text-2xl font-bold text-gray-950 dark:text-white">
-                  {project.title}
-                </h2>
+                <div>
+                  <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                    <h2 className="text-xl font-bold text-stone-950 dark:text-white">
+                      {project.title}
+                    </h2>
+                    <span className="text-xs font-semibold text-accent-600 dark:text-accent-400">
+                      {project.status}
+                    </span>
+                  </div>
 
-                <p className="mt-3 max-w-2xl leading-relaxed text-gray-600 dark:text-gray-400">
-                  {project.description}
-                </p>
+                  <p className="mt-1.5 max-w-2xl text-[15px] leading-normal text-stone-600 dark:text-stone-400">
+                    {project.description}
+                  </p>
+
+                  <p className="mt-2 font-mono text-xs text-stone-500 dark:text-stone-500">
+                    {project.technologies.join("  ·  ")}
+                  </p>
+                </div>
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex shrink-0 gap-4 pl-[44px] md:pl-0">
                 {project.githubUrl && project.githubUrl !== "#" && (
                   <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full border border-gray-300 px-5 py-2 text-sm font-semibold text-gray-800 transition hover:border-blue-600 hover:text-blue-600 dark:border-gray-600 dark:text-gray-200 dark:hover:border-blue-500 dark:hover:text-blue-400"
+                    className="text-sm font-semibold text-stone-700 underline decoration-stone-300 underline-offset-4 transition hover:text-accent-600 hover:decoration-accent-600 dark:text-stone-300 dark:decoration-stone-600 dark:hover:text-accent-400 dark:hover:decoration-accent-400"
                   >
                     {t.github}
                   </a>
@@ -171,23 +171,12 @@ export default function ProjectsContent() {
                 {project.liveUrl && project.liveUrl !== "#" && (
                   <a
                     href={project.liveUrl}
-                    className="rounded-full bg-blue-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-blue-700"
+                    className="text-sm font-semibold text-accent-600 underline decoration-accent-300 underline-offset-4 transition hover:decoration-accent-600 dark:text-accent-400 dark:decoration-accent-800 dark:hover:decoration-accent-400"
                   >
                     {t.demo}
                   </a>
                 )}
               </div>
-            </div>
-
-            <div className="mt-6 flex flex-wrap gap-2">
-              {project.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 dark:border-gray-700 dark:bg-gray-700/50 dark:text-gray-300"
-                >
-                  {tech}
-                </span>
-              ))}
             </div>
           </article>
         ))}

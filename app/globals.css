@@ -2,6 +2,23 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --color-accent-50: #fdf4f0;
+  --color-accent-100: #fbe4da;
+  --color-accent-200: #f5c7b3;
+  --color-accent-300: #eda184;
+  --color-accent-400: #e17c56;
+  --color-accent-500: #cc5a35;
+  --color-accent-600: #b0452a;
+  --color-accent-700: #8f3822;
+  --color-accent-800: #6f2b1b;
+  --color-accent-900: #4a1c12;
+  --color-accent-950: #2c0f0a;
+}
+
 body {
   min-height: 100%;
   font-family: Arial, Helvetica, sans-serif;
@@ -11,4 +28,16 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent-600);
+  outline-offset: 3px;
+  border-radius: 0.375rem;
+}
+
+.dark a:focus-visible,
+.dark button:focus-visible {
+  outline-color: var(--color-accent-400);
 }

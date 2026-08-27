@@ -94,51 +94,21 @@ export default function SkillsContent() {
   return (
     <main className="mx-auto max-w-5xl px-6 py-16">
       <section className="mb-12">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400">
-          {t.overline}
-        </p>
-
-        <h1 className="text-5xl font-black tracking-tight text-gray-950 dark:text-white">
+        <h1 className="font-heading text-7xl font-black tracking-tighter text-accent-600 md:text-8xl dark:text-accent-400">
           {t.heading}
         </h1>
-
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-          {t.intro}
-        </p>
       </section>
 
-      <section className="grid gap-6 md:grid-cols-3">
+      <section className="grid gap-x-12 gap-y-8 border-t border-stone-200 pt-10 dark:border-stone-800 md:grid-cols-2">
         {t.groups.map((group) => (
-          <article
-            key={group.title}
-            className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-700 dark:bg-gray-800"
-          >
-            <h2 className="text-2xl font-bold text-gray-950 dark:text-white">{group.title}</h2>
+          <article key={group.title}>
+            <h2 className="text-lg font-bold text-stone-950 dark:text-white">{group.title}</h2>
 
-            <p className="mt-3 text-gray-600 dark:text-gray-400">{group.description}</p>
-
-            <div className="mt-6 flex flex-wrap gap-2">
-              {group.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 dark:border-gray-700 dark:bg-gray-700/50 dark:text-gray-300"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
+            <p className="mt-2 font-mono text-sm leading-relaxed text-stone-600 dark:text-stone-400">
+              {group.skills.join("  ·  ")}
+            </p>
           </article>
         ))}
-      </section>
-
-      <section className="mt-8 rounded-xl border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-        <h2 className="text-2xl font-bold text-gray-950 dark:text-white">
-          {t.nextHeading}
-        </h2>
-
-        <p className="mt-4 max-w-3xl leading-relaxed text-gray-600 dark:text-gray-400">
-          {t.nextText}
-        </p>
       </section>
     </main>
   );
