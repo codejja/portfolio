@@ -4,6 +4,8 @@ import "./globals.css";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { LanguageProvider } from "./context/LanguageContext";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,14 +22,18 @@ export default function RootLayout({ children }) {
       lang="fi"
       className="h-full"
     >
-      <body className={`${inter.className} flex min-h-screen flex-col bg-gradient-to-b from-slate-50 to-gray-100 text-gray-900`}>
-        <Navbar />
+      <body className={`${inter.className} flex min-h-screen flex-col bg-slate-50 text-gray-900 print:bg-white dark:bg-gray-950 dark:text-gray-100 dark:print:bg-white dark:print:text-gray-900`}>
+        <ThemeProvider>
+          <LanguageProvider>
+            <Navbar />
 
-        <main className="flex-1">
-        {children}
-        </main>
+            <main className="flex-1">
+            {children}
+            </main>
 
-        <Footer />
+            <Footer />
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
