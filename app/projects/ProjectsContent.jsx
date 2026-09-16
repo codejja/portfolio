@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
+import { projects } from "./projectsData";
 
-const content = {
+const ui = {
   fi: {
     overline: "Projects",
     heading: "Projektit",
@@ -10,53 +12,7 @@ const content = {
       "Tänne kokoan projekteja, joissa harjoittelen web-kehitystä, Reactia, Next.js:ää, API-rajapintoja ja modernia käyttöliittymien rakentamista.",
     github: "GitHub",
     demo: "Demo",
-    projects: [
-      {
-        title: "Portfolio-sivusto",
-        status: "Valmis / kehityksessä",
-        description:
-          "Oma portfolio-sivustoni, jonka tarkoitus on esitellä osaamistani, projektejani ja taustaani työnhakua varten.",
-        technologies: ["Next.js", "React", "Tailwind CSS"],
-        githubUrl: "https://github.com/codejja/portfolio26",
-        liveUrl: "#",
-      },
-      {
-        title: "Data-arkkitehtuuri Azure Data Factorylla",
-        status: "Kurssiprojekti",
-        description:
-          "Rakensin kurssiprojektina yksinkertaisen data-arkkitehtuurin alusta loppuun Azure Data Factorylla: tapahtumaohjattuja, API-pohjaisia työnkulkuja Logic Appsilla, sekä data-analyysia ja visualisointia, mm. some-datan analytiikkaa.",
-        technologies: ["Azure Data Factory", "Logic Apps", "Data Analytics"],
-        githubUrl: "#",
-        liveUrl: "#",
-      },
-      {
-        title: "Puutarha-alan yrityksen verkkosivut",
-        status: "Asiakasprojekti",
-        description:
-          "Suunnittelin ja toteutin verkkosivuston turkulaiselle viherrakennusyritykselle. Sivusto sisältää dynaamisia palvelusivuja CMS:n avulla, ennen/jälkeen-kuvavertailijan, asiakasarvosteluja ja täysin responsiivisen toteutuksen.",
-        technologies: ["Webflow", "CMS", "Responsive Design"],
-        githubUrl: "#",
-        liveUrl: "#",
-      },
-      {
-        title: "Hyväksyntätyönkulku Power Automatella",
-        status: "Kurssiprojekti",
-        description:
-          "Toteutin Power Automatella SharePoint-listaan liitetyn hyväksyntätyönkulun: esimiehen sähköpostihyväksyntä/-hylkäys, automaattiset tilapäivitykset ja ilmoitukset. Kirjoitin prosessista myös kuvitetun step-by-step-teknisen ohjeistuksen.",
-        technologies: ["Power Automate", "SharePoint", "Prosessiautomaatio"],
-        githubUrl: "#",
-        liveUrl: "#",
-      },
-      {
-        title: "Datankeruujärjestelmä ja Power BI -raportointi",
-        status: "Itsenäinen lopputyö",
-        description:
-          "Rakensin itsenäisenä lopputyönä datankeruujärjestelmän, yhdistin Power BI:n Azure SQL -tietokantaan, tein eksploratiivista data-analyysia ja loin Power BI -raportteja ja visualisointeja.",
-        technologies: ["Power BI", "Azure SQL", "Data Analysis"],
-        githubUrl: "#",
-        liveUrl: "#",
-      },
-    ],
+    readMore: "Lue lisää →",
   },
   en: {
     overline: "Projects",
@@ -65,59 +21,31 @@ const content = {
       "Here I collect projects where I practice web development, React, Next.js, API integrations, and building modern user interfaces.",
     github: "GitHub",
     demo: "Demo",
-    projects: [
-      {
-        title: "Portfolio website",
-        status: "Complete / in progress",
-        description:
-          "My own portfolio website, built to showcase my skills, projects, and background for my job search.",
-        technologies: ["Next.js", "React", "Tailwind CSS"],
-        githubUrl: "https://github.com/codejja/portfolio26",
-        liveUrl: "#",
-      },
-      {
-        title: "Data architecture with Azure Data Factory",
-        status: "Course project",
-        description:
-          "Built a simple data architecture from start to finish as a course project using Azure Data Factory: event-driven, API-based workflows with Logic Apps, plus data analysis and visualization, including social media analytics.",
-        technologies: ["Azure Data Factory", "Logic Apps", "Data Analytics"],
-        githubUrl: "#",
-        liveUrl: "#",
-      },
-      {
-        title: "Landscaping company website",
-        status: "Client project",
-        description:
-          "Designed and built a website for a landscaping company based in Turku, Finland. The site includes dynamic service pages powered by a CMS, a before/after image comparison slider, customer reviews, and a fully responsive layout.",
-        technologies: ["Webflow", "CMS", "Responsive Design"],
-        githubUrl: "#",
-        liveUrl: "#",
-      },
-      {
-        title: "Approval workflow with Power Automate",
-        status: "Course project",
-        description:
-          "Built an approval workflow in Power Automate connected to a SharePoint list: manager email approval/rejection, automatic status updates, and notifications. Also wrote an illustrated step-by-step technical guide for the process.",
-        technologies: ["Power Automate", "SharePoint", "Process Automation"],
-        githubUrl: "#",
-        liveUrl: "#",
-      },
-      {
-        title: "Data collection system and Power BI reporting",
-        status: "Independent final project",
-        description:
-          "Built a data collection system as an independent final project, connected Power BI to an Azure SQL database, performed exploratory data analysis, and created Power BI reports and visualizations.",
-        technologies: ["Power BI", "Azure SQL", "Data Analysis"],
-        githubUrl: "#",
-        liveUrl: "#",
-      },
-    ],
+    readMore: "Read more →",
   },
+};
+
+// Kategorioiden näyttöjärjestys ja otsikot. Kategoria määritellään
+// jokaiselle projektille projectsData.js:ssä (project.category).
+const CATEGORY_ORDER = ["data-cloud", "web", "ui-ux", "testing"];
+
+const CATEGORY_LABELS = {
+  "data-cloud": { fi: "Data & pilviautomaatio", en: "Data & cloud automation" },
+  web: { fi: "Web-kehitys", en: "Web development" },
+  "ui-ux": { fi: "Käyttöliittymäsuunnittelu", en: "UI/UX design" },
+  testing: { fi: "Testaus & laadunvarmistus", en: "Testing & QA" },
 };
 
 export default function ProjectsContent() {
   const { lang } = useLanguage();
-  const t = content[lang];
+  const t = ui[lang];
+
+  const groups = CATEGORY_ORDER.map((category) => ({
+    category,
+    items: projects.filter((project) => project.category === category),
+  })).filter((group) => group.items.length > 0);
+
+  let runningIndex = 0;
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-16">
@@ -127,60 +55,91 @@ export default function ProjectsContent() {
         </h1>
       </section>
 
-      <section className="divide-y divide-stone-200 border-t border-stone-200 dark:divide-stone-800 dark:border-stone-800">
-        {t.projects.map((project, index) => (
-          <article key={project.title} className="py-6">
-            <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-              <div className="flex gap-4">
-                <span className="font-heading shrink-0 text-2xl font-bold leading-none text-accent-200 dark:text-accent-900/70">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+      {groups.map((group) => (
+        <section key={group.category} className="mb-14">
+          <h2 className="font-heading mb-4 text-sm font-bold uppercase tracking-wide text-stone-500 dark:text-stone-500">
+            {CATEGORY_LABELS[group.category][lang]}
+          </h2>
 
-                <div>
-                  <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-                    <h2 className="text-xl font-bold text-stone-950 dark:text-white">
-                      {project.title}
-                    </h2>
-                    <span className="text-xs font-semibold text-accent-600 dark:text-accent-400">
-                      {project.status}
-                    </span>
+          <div className="divide-y divide-stone-200 border-t border-stone-200 dark:divide-stone-800 dark:border-stone-800">
+            {group.items.map((project) => {
+              runningIndex += 1;
+              const displayIndex = runningIndex;
+
+              return (
+                <article key={project.slug} className="py-6">
+                  <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                    <div className="flex gap-4">
+                      <span className="font-heading shrink-0 text-2xl font-bold leading-none text-accent-200 dark:text-accent-900/70">
+                        {String(displayIndex).padStart(2, "0")}
+                      </span>
+
+                      <div>
+                        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                          <h3 className="text-xl font-bold text-stone-950 dark:text-white">
+                            {project.hasDetail ? (
+                              <Link
+                                href={`/projects/${project.slug}`}
+                                className="transition hover:text-accent-600 dark:hover:text-accent-400"
+                              >
+                                {project.title[lang]}
+                              </Link>
+                            ) : (
+                              project.title[lang]
+                            )}
+                          </h3>
+                          <span className="text-xs font-semibold text-accent-600 dark:text-accent-400">
+                            {project.status[lang]}
+                          </span>
+                        </div>
+
+                        <p className="mt-1.5 max-w-2xl text-[15px] leading-normal text-stone-600 dark:text-stone-400">
+                          {project.summary[lang]}
+                        </p>
+
+                        <p className="mt-2 font-mono text-xs text-stone-500 dark:text-stone-500">
+                          {project.technologies.join("  ·  ")}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex shrink-0 flex-wrap gap-4 pl-[44px] md:pl-0">
+                      {project.hasDetail && (
+                        <Link
+                          href={`/projects/${project.slug}`}
+                          className="text-sm font-semibold text-accent-600 underline decoration-accent-300 underline-offset-4 transition hover:decoration-accent-600 dark:text-accent-400 dark:decoration-accent-800 dark:hover:decoration-accent-400"
+                        >
+                          {t.readMore}
+                        </Link>
+                      )}
+
+                      {project.githubUrl && project.githubUrl !== "#" && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-semibold text-stone-700 underline decoration-stone-300 underline-offset-4 transition hover:text-accent-600 hover:decoration-accent-600 dark:text-stone-300 dark:decoration-stone-600 dark:hover:text-accent-400 dark:hover:decoration-accent-400"
+                        >
+                          {t.github}
+                        </a>
+                      )}
+
+                      {project.liveUrl && project.liveUrl !== "#" && (
+                        <a
+                          href={project.liveUrl}
+                          className="text-sm font-semibold text-accent-600 underline decoration-accent-300 underline-offset-4 transition hover:decoration-accent-600 dark:text-accent-400 dark:decoration-accent-800 dark:hover:decoration-accent-400"
+                        >
+                          {t.demo}
+                        </a>
+                      )}
+                    </div>
                   </div>
-
-                  <p className="mt-1.5 max-w-2xl text-[15px] leading-normal text-stone-600 dark:text-stone-400">
-                    {project.description}
-                  </p>
-
-                  <p className="mt-2 font-mono text-xs text-stone-500 dark:text-stone-500">
-                    {project.technologies.join("  ·  ")}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex shrink-0 gap-4 pl-[44px] md:pl-0">
-                {project.githubUrl && project.githubUrl !== "#" && (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-semibold text-stone-700 underline decoration-stone-300 underline-offset-4 transition hover:text-accent-600 hover:decoration-accent-600 dark:text-stone-300 dark:decoration-stone-600 dark:hover:text-accent-400 dark:hover:decoration-accent-400"
-                  >
-                    {t.github}
-                  </a>
-                )}
-
-                {project.liveUrl && project.liveUrl !== "#" && (
-                  <a
-                    href={project.liveUrl}
-                    className="text-sm font-semibold text-accent-600 underline decoration-accent-300 underline-offset-4 transition hover:decoration-accent-600 dark:text-accent-400 dark:decoration-accent-800 dark:hover:decoration-accent-400"
-                  >
-                    {t.demo}
-                  </a>
-                )}
-              </div>
-            </div>
-          </article>
-        ))}
-      </section>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      ))}
     </main>
   );
 }
