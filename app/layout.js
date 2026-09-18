@@ -1,4 +1,5 @@
 import { Inter, Space_Grotesk, Space_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
             <Footer />
           </LanguageProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
