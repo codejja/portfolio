@@ -173,6 +173,14 @@ export default function Navbar() {
         {isOpen && (
           <div className="flex flex-col gap-1 border-t border-stone-200 px-6 py-4 md:hidden dark:border-stone-800">
             <Link
+              href="/"
+              onClick={() => setIsOpen(false)}
+              className="py-3 text-[16px] font-medium text-stone-800 transition hover:text-accent-600 dark:text-stone-200 dark:hover:text-accent-400"
+            >
+              Janne
+            </Link>
+
+            <Link
               href="/projects"
               onClick={() => setIsOpen(false)}
               className="py-3 text-[16px] font-medium text-stone-800 transition hover:text-accent-600 dark:text-stone-200 dark:hover:text-accent-400"
@@ -194,6 +202,14 @@ export default function Navbar() {
               className="py-3 text-[16px] font-medium text-stone-800 transition hover:text-accent-600 dark:text-stone-200 dark:hover:text-accent-400"
             >
               {t.cv}
+            </Link>
+
+            <Link
+              href="/contact"
+              onClick={() => setIsOpen(false)}
+              className="mt-2 inline-block rounded border border-accent-600 px-5 py-2 text-center text-xs font-semibold uppercase tracking-[0.1em] text-accent-600 transition hover:bg-accent-600 hover:text-white dark:border-accent-400 dark:text-accent-400 dark:hover:bg-accent-400 dark:hover:text-stone-950"
+            >
+              {t.contact}
             </Link>
 
             <div className="mt-2 flex items-center gap-5 border-t border-stone-200 pt-4 dark:border-stone-800">

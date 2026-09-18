@@ -5,18 +5,18 @@ import { createContext, useContext, useEffect, useState } from "react";
 const ThemeContext = createContext(null);
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("light");
+  // Oletus on "dark", koska app/layout.js:n <html>-elementille on kovakoodattu
+  // "dark"-luokka samasta syystä: sivu renderöityy palvelimella aina tummana,
+  // jotta ei välähdä väärässä teemassa ennen kuin tämä efekti ehtii lukea
+  // localStoragesta käyttäjän oikean valinnan. Näitä kahta ei pidä muuttaa
+  // toisistaan erillään.
+  const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
     try {
       const stored = window.localStorage.getItem("theme");
       if (stored === "light" || stored === "dark") {
         setTheme(stored);
-        return;
-      }
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      if (prefersDark) {
-        setTheme("dark");
       }
     } catch {
       // ei haittaa jos selain estää pääsyn

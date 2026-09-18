@@ -7,23 +7,23 @@ import { useLanguage } from "../context/LanguageContext";
 const text = {
   fi: {
     label: "Portfolio",
-    role: "IT Student · Web Development & AI Curious",
+    role: "IT-tradenomiopiskelija · Liiketoiminta, data & automaatio",
     description: [
-      "Opiskelen tietojenkäsittelyä HAMK:ssa ja tykkään rakentaa asioita, jotka oikeasti ratkaisevat jonkun ongelman, verkkosivuista data-analytiikkaan ja pilvipalveluihin. Eniten minua kiinnostaa frontend-kehitys: se hetki, kun rakenne ja koodi muuttuvat joksikin, mitä oikea ihminen voi käyttää.",
-      "Olen opetellut Reactia, Next.js:ää, JavaScriptiä, Tailwind CSS:ää ja responsiivista suunnittelua tekemällä: toteuttamalla omia projekteja, opiskelemalla uusia teknologioita käytännössä ja hiomalla tätä portfoliota koko ajan vähän pidemmälle.",
-      "Tavoitteenani on päästä työskentelemään oikeiden projektien parissa, oppia kokeneemmilta ja kasvaa ohjelmistokehittäjänä osana tiimiä.",
-      "Vapaa-ajalla minut löytää yleensä maantiepyöräilemästä, kuntosalilta tai pelaamasta sulkapalloa tai padelia.",
+      "Taustani on liiketaloudessa, ja yli kuuden vuoden kokemus etuuskäsittelystä Kelassa on opettanut, miten iso organisaatio oikeasti toimii käytännössä. Täydennän tätä nyt IT-osaamisella: ymmärrän mitä liiketoiminta yrittää saavuttaa, käytän dataa sen selvittämiseen ja rakennan automaatioita ja raportointia, jotka tekevät työstä sujuvampaa.",
+      "Olen opetellut Power Automatea, Power BI:tä, Azure-palveluita, SQL:ää ja rajapintojen toimintaa tekemällä: hyväksyntätyönkulkuja, data-arkkitehtuureja ja raportointiratkaisuja opinnoissa ja omissa projekteissa. Käytän tekoälyä työkaluna osana tätä kokonaisuutta, esimerkiksi datan tulkinnan apuna.",
+      "Tavoitteenani ei ole profiloitua puhtaaksi ohjelmistokehittäjäksi, vaan olla henkilö, joka ymmärtää sekä liiketoimintaa että sitä tukevaa teknologiaa: dataa, automaatiota, järjestelmiä ja tekoälyä työkaluna.",
+      "Vapaa-ajalla minut löytää yleensä maantiepyöräilemästä, kuntosalilta, tai pelaamasta sulkapalloa tai padelia.",
     ],
     viewProjects: "Katso projektit",
     viewCv: "Katso CV",
   },
   en: {
     label: "Portfolio",
-    role: "IT Student · Web Development & AI Curious",
+    role: "IT Student · Business, Data & Automation",
     description: [
-      "I'm studying Business Information Technology at HAMK, and I like building things that actually solve someone's problem, from websites to data analytics and cloud services. What interests me most is frontend development: that moment when structure and code turn into something a real person can actually use.",
-      "I've learned React, Next.js, JavaScript, Tailwind CSS, and responsive design by doing: developing my own projects, learning new technologies hands-on, and continuously pushing this portfolio a little further.",
-      "My goal is to work on real projects, learn from people more experienced than me, and grow as a software developer as part of a team.",
+      "My background is in business, and over six years handling benefit processing at Kela taught me how a large organization actually works in practice. I'm now building IT skills on top of that: understanding what a business is trying to achieve, using data to find out, and building the automation and reporting that make the work run smoother.",
+      "I've learned Power Automate, Power BI, Azure services, SQL, and how APIs work by doing: building approval workflows, data architectures, and reporting solutions in my studies and my own projects. I use AI as a tool as part of that, for example to help interpret data.",
+      "My goal isn't to be a pure software developer, but to be someone who understands both the business side and the technology that supports it: data, automation, systems, and AI as a tool.",
       "In my spare time, you can usually find me road cycling, at the gym, or playing badminton or padel.",
     ],
     viewProjects: "View projects",
@@ -35,7 +35,7 @@ export default function Hero() {
   const { lang } = useLanguage();
   const t = text[lang];
 
-  const skills = ["Frontend", "Cloud", "Analytics", "Automation", "UI/UX Design"];
+  const skills = ["Business Understanding", "Data Analytics", "Automation & Reporting", "Systems & APIs", "Applied AI"];
 
   return (
     <section className="py-6">

@@ -55,7 +55,7 @@ export default async function Image() {
             lineHeight: 1.4,
           }}
         >
-          IT-alan opiskelija — frontend-kehitys, data-analytiikka ja pilvipalvelut
+          IT-tradenomiopiskelija · Liiketoiminta, data & automaatio
         </div>
       </div>
     ),

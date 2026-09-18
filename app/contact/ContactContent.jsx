@@ -12,13 +12,13 @@ const content = {
     email: "Sähköposti",
     seekingHeading: "Etsin harjoittelupaikkaa",
     seekingText:
-      "Haluan päästä tekemään oikeita projekteja, oppia kokeneemmilta ja kasvaa vähän kerrallaan paremmaksi kehittäjäksi.",
+      "Haluan päästä tekemään oikeita projekteja, oppia kokeneemmilta ja kasvaa vähän kerrallaan osaajana, joka yhdistää liiketoiminnan ja teknologian.",
     interestsHeading: "Kiinnostuksen kohteet",
     interests: [
-      "Frontend-kehitys",
-      "React ja Next.js",
-      "Web-sovellukset",
-      "Automaatio ja käytännön IT-ratkaisut",
+      "Liiketoiminnan ymmärtäminen datan avulla",
+      "Prosessien automaatio ja raportointi",
+      "Järjestelmät ja rajapinnat (API)",
+      "Tekoälyn hyödyntäminen käytännössä",
     ],
   },
   en: {
@@ -30,13 +30,13 @@ const content = {
     email: "Email",
     seekingHeading: "Looking for an internship",
     seekingText:
-      "I want to work on real projects, learn from people who've been doing this longer, and grow into a better developer one step at a time.",
+      "I want to work on real projects, learn from people who've been doing this longer, and grow one step at a time into someone who bridges business and technology.",
     interestsHeading: "Areas of interest",
     interests: [
-      "Frontend development",
-      "React and Next.js",
-      "Web applications",
-      "Automation and practical IT solutions",
+      "Understanding business through data",
+      "Process automation and reporting",
+      "Systems and APIs",
+      "Applying AI in practice",
     ],
   },
 };
@@ -46,7 +46,7 @@ export default function ContactContent() {
   const t = content[lang];
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-16">
+    <div className="mx-auto max-w-5xl px-6 py-16">
       <section className="mb-12">
         <h1 className="font-heading text-7xl font-black tracking-tighter text-accent-600 md:text-8xl dark:text-accent-400">
           {t.heading}
@@ -119,6 +119,6 @@ export default function ContactContent() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -11,6 +11,10 @@ export default function DownloadCvButton() {
   const { lang } = useLanguage();
 
   return (
+    // "Lataa CV" käyttää selaimen tulostustoimintoa (window.print()) eikä
+    // oikeaa PDF-kirjastoa: CV-sivu on tyylitelty print:-Tailwind-luokilla
+    // tulostusta varten (ks. print:hidden/print:bg-white), ja käyttäjä
+    // tallentaa sen PDF:nä selaimen omasta tulostusdialogista.
     <button
       type="button"
       onClick={() => window.print()}

@@ -39,7 +39,7 @@ export default function ProjectDetailContent({ project }) {
   const d = project.detail;
 
   return (
-    <main className="mx-auto max-w-4xl px-6 py-16">
+    <div className="mx-auto max-w-4xl px-6 py-16">
       <Link
         href="/projects"
         className="text-sm font-semibold text-stone-500 underline decoration-stone-300 underline-offset-4 transition hover:text-accent-600 hover:decoration-accent-600 dark:text-stone-400 dark:decoration-stone-700 dark:hover:text-accent-400"
@@ -176,6 +176,8 @@ export default function ProjectDetailContent({ project }) {
           {project.liveUrl && project.liveUrl !== "#" && (
             <a
               href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm font-semibold text-accent-600 underline decoration-accent-300 underline-offset-4 transition hover:decoration-accent-600 dark:text-accent-400 dark:decoration-accent-800 dark:hover:decoration-accent-400"
             >
               {t.demo}
@@ -183,6 +185,6 @@ export default function ProjectDetailContent({ project }) {
           )}
         </div>
       </section>
-    </main>
+    </div>
   );
 }

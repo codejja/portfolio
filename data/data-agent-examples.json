@@ -1,0 +1,515 @@
+{
+  "mikä tuotekategoria myi vähiten viimeisen vuoden aikana?": {
+    "steps": [
+      {
+        "type": "thought",
+        "text": "Selvitän, mikä tuotekategoria myi vähiten viimeisen vuoden aikana. Ensin tarkistan tietokannan rakenteen."
+      },
+      {
+        "type": "tool_call",
+        "tool": "list_tables",
+        "input": {},
+        "output": {
+          "schema": "Taulut kuvitteellisen verkkokaupan tietokannassa:\n\nasiakkaat (id, nimi, kaupunki, segmentti, liittymispaiva)\n  - segmentti: 'uusi' | 'kanta-asiakas' | 'yritysasiakas'\n  - liittymispaiva: ISO-päivämäärä (YYYY-MM-DD)\n\ntuotteet (id, nimi, kategoria, hinta)\n  - hinta: euroina (REAL)\n\ntilaukset (id, asiakas_id, tilauspaiva, tila)\n  - asiakas_id viittaa asiakkaat.id:hen\n  - tila: 'maksettu' | 'toimitettu' | 'palautettu' | 'peruttu'\n  - tilauspaiva: ISO-päivämäärä (YYYY-MM-DD), kattaa viimeiset ~12 kuukautta\n\ntilausrivit (id, tilaus_id, tuote_id, maara, yksikkohinta)\n  - tilaus_id viittaa tilaukset.id:hen\n  - tuote_id viittaa tuotteet.id:hen\n  - liikevaihto per rivi = maara * yksikkohinta"
+        }
+      },
+      {
+        "type": "thought",
+        "text": "Nyt haen tuotekategorioiden myyntimäärät viimeisen vuoden aikana."
+      },
+      {
+        "type": "tool_call",
+        "tool": "run_query",
+        "input": {
+          "sql": "SELECT t.kategoria, SUM(tr.maara) as yhteensa_maara\nFROM tuotteet t\nJOIN tilausrivit tr ON t.id = tr.tuote_id\nJOIN tilaukset til ON tr.tilaus_id = til.id\nWHERE til.tila IN ('maksettu', 'toimitettu')\nGROUP BY t.kategoria\nORDER BY yhteensa_maara ASC;"
+        },
+        "output": {
+          "rows": [
+            {
+              "kategoria": "Urheilu",
+              "yhteensa_maara": 144
+            },
+            {
+              "kategoria": "Koti ja piha",
+              "yhteensa_maara": 150
+            },
+            {
+              "kategoria": "Lelut",
+              "yhteensa_maara": 190
+            },
+            {
+              "kategoria": "Ruoka ja juoma",
+              "yhteensa_maara": 212
+            },
+            {
+              "kategoria": "Kauneus",
+              "yhteensa_maara": 218
+            },
+            {
+              "kategoria": "Kirjat",
+              "yhteensa_maara": 227
+            },
+            {
+              "kategoria": "Vaatteet",
+              "yhteensa_maara": 254
+            },
+            {
+              "kategoria": "Elektroniikka",
+              "yhteensa_maara": 376
+            }
+          ],
+          "truncated": false
+        }
+      }
+    ],
+    "answer": "Urheilu-kategoria myi vähiten viimeisen vuoden aikana. Urheilu-tuotteiden myyntimäärä oli yhteensä 144 yksikköä, kun taas toiseksi vähiten myynyt kategoria Koti ja piha myi 150 yksikköä. Eniten myyty kategoria oli elektroniikka 376 yksikköllä."
+  },
+  "which product category sold the least over the last year?": {
+    "steps": [
+      {
+        "type": "thought",
+        "text": "I'll help you find which product category sold the least over the last year. Let me start by checking the database structure."
+      },
+      {
+        "type": "tool_call",
+        "tool": "list_tables",
+        "input": {},
+        "output": {
+          "schema": "Taulut kuvitteellisen verkkokaupan tietokannassa:\n\nasiakkaat (id, nimi, kaupunki, segmentti, liittymispaiva)\n  - segmentti: 'uusi' | 'kanta-asiakas' | 'yritysasiakas'\n  - liittymispaiva: ISO-päivämäärä (YYYY-MM-DD)\n\ntuotteet (id, nimi, kategoria, hinta)\n  - hinta: euroina (REAL)\n\ntilaukset (id, asiakas_id, tilauspaiva, tila)\n  - asiakas_id viittaa asiakkaat.id:hen\n  - tila: 'maksettu' | 'toimitettu' | 'palautettu' | 'peruttu'\n  - tilauspaiva: ISO-päivämäärä (YYYY-MM-DD), kattaa viimeiset ~12 kuukautta\n\ntilausrivit (id, tilaus_id, tuote_id, maara, yksikkohinta)\n  - tilaus_id viittaa tilaukset.id:hen\n  - tuote_id viittaa tuotteet.id:hen\n  - liikevaihto per rivi = maara * yksikkohinta"
+        }
+      },
+      {
+        "type": "thought",
+        "text": "Now I'll query to find which product category sold the least by calculating total sales volume (quantity) for each category."
+      },
+      {
+        "type": "tool_call",
+        "tool": "run_query",
+        "input": {
+          "sql": "\nSELECT \n  p.kategoria,\n  SUM(tr.maara) as yhteensa_maara,\n  SUM(tr.maara * tr.yksikkohinta) as yhteensa_liikevaihto\nFROM tilausrivit tr\nJOIN tuotteet p ON tr.tuote_id = p.id\nJOIN tilaukset t ON tr.tilaus_id = t.id\nWHERE t.tila IN ('maksettu', 'toimitettu')\nGROUP BY p.kategoria\nORDER BY yhteensa_maara ASC\n"
+        },
+        "output": {
+          "rows": [
+            {
+              "kategoria": "Urheilu",
+              "yhteensa_maara": 144,
+              "yhteensa_liikevaihto": 20020.8
+            },
+            {
+              "kategoria": "Koti ja piha",
+              "yhteensa_maara": 150,
+              "yhteensa_liikevaihto": 12201.2
+            },
+            {
+              "kategoria": "Lelut",
+              "yhteensa_maara": 190,
+              "yhteensa_liikevaihto": 6192
+            },
+            {
+              "kategoria": "Ruoka ja juoma",
+              "yhteensa_maara": 212,
+              "yhteensa_liikevaihto": 3114.7999999999997
+            },
+            {
+              "kategoria": "Kauneus",
+              "yhteensa_maara": 218,
+              "yhteensa_liikevaihto": 8629.199999999999
+            },
+            {
+              "kategoria": "Kirjat",
+              "yhteensa_maara": 227,
+              "yhteensa_liikevaihto": 5776.299999999999
+            },
+            {
+              "kategoria": "Vaatteet",
+              "yhteensa_maara": 254,
+              "yhteensa_liikevaihto": 17842.4
+            },
+            {
+              "kategoria": "Elektroniikka",
+              "yhteensa_maara": 376,
+              "yhteensa_liikevaihto": 25564.4
+            }
+          ],
+          "truncated": false
+        }
+      }
+    ],
+    "answer": "Based on the analysis of sales over the last year, the product category that sold the least is Urheilu (Sports) with only 144 units sold, generating 20,020.80 euros in revenue. This is followed by Koti ja piha (Home and Garden) with 150 units sold."
+  },
+  "ketkä ovat 5 parasta asiakasta liikevaihdolla mitattuna?": {
+    "steps": [
+      {
+        "type": "thought",
+        "text": "Kutsun ensin list_tables-työkalua tarkistaakseni tietokannan rakenteen."
+      },
+      {
+        "type": "tool_call",
+        "tool": "list_tables",
+        "input": {},
+        "output": {
+          "schema": "Taulut kuvitteellisen verkkokaupan tietokannassa:\n\nasiakkaat (id, nimi, kaupunki, segmentti, liittymispaiva)\n  - segmentti: 'uusi' | 'kanta-asiakas' | 'yritysasiakas'\n  - liittymispaiva: ISO-päivämäärä (YYYY-MM-DD)\n\ntuotteet (id, nimi, kategoria, hinta)\n  - hinta: euroina (REAL)\n\ntilaukset (id, asiakas_id, tilauspaiva, tila)\n  - asiakas_id viittaa asiakkaat.id:hen\n  - tila: 'maksettu' | 'toimitettu' | 'palautettu' | 'peruttu'\n  - tilauspaiva: ISO-päivämäärä (YYYY-MM-DD), kattaa viimeiset ~12 kuukautta\n\ntilausrivit (id, tilaus_id, tuote_id, maara, yksikkohinta)\n  - tilaus_id viittaa tilaukset.id:hen\n  - tuote_id viittaa tuotteet.id:hen\n  - liikevaihto per rivi = maara * yksikkohinta"
+        }
+      },
+      {
+        "type": "thought",
+        "text": "Nyt kirjoitan kyselyn, joka laskee jokaisen asiakkaan kokonaisliikevaihdon tilausrivien perusteella ja listaa 5 parasta asiakasta."
+      },
+      {
+        "type": "tool_call",
+        "tool": "run_query",
+        "input": {
+          "sql": "\nSELECT \n  a.id,\n  a.nimi,\n  a.kaupunki,\n  ROUND(SUM(tr.maara * tr.yksikkohinta), 2) as liikevaihto\nFROM asiakkaat a\nLEFT JOIN tilaukset t ON a.id = t.asiakas_id\nLEFT JOIN tilausrivit tr ON t.id = tr.tilaus_id\nWHERE t.tila != 'peruttu'\nGROUP BY a.id, a.nimi, a.kaupunki\nORDER BY liikevaihto DESC\nLIMIT 5\n"
+        },
+        "output": {
+          "rows": [
+            {
+              "id": 110,
+              "nimi": "Ville Ahonen",
+              "kaupunki": "Helsinki",
+              "liikevaihto": 4166.9
+            },
+            {
+              "id": 31,
+              "nimi": "Laura Ahonen",
+              "kaupunki": "Oulu",
+              "liikevaihto": 2466.4
+            },
+            {
+              "id": 118,
+              "nimi": "Tomi Ahonen",
+              "kaupunki": "Kuopio",
+              "liikevaihto": 2443.6
+            },
+            {
+              "id": 43,
+              "nimi": "Petri Lehtonen",
+              "kaupunki": "Pori",
+              "liikevaihto": 2361.7
+            },
+            {
+              "id": 16,
+              "nimi": "Emilia Kallio",
+              "kaupunki": "Vaasa",
+              "liikevaihto": 2314.7
+            }
+          ],
+          "truncated": false
+        }
+      }
+    ],
+    "answer": "Viiden parhaan asiakkaan luokitus liikevaihdolla mitattuna on seuraava:\n\n1. Ville Ahonen (Helsinki) - 4166,90 euroa\n2. Laura Ahonen (Oulu) - 2466,40 euroa\n3. Tomi Ahonen (Kuopio) - 2443,60 euroa\n4. Petri Lehtonen (Pori) - 2361,70 euroa\n5. Emilia Kallio (Vaasa) - 2314,70 euroa\n\nVille Ahonen on selvästi paras asiakas, jonka liikevaihto on lähes 1700 euroa suurempi kuin toiseksi paras asiakas. Hän on myös ainoa Helsingissä asuva viiden parhaan joukossa."
+  },
+  "who are the top 5 customers by revenue?": {
+    "steps": [
+      {
+        "type": "thought",
+        "text": "I'll help you find the top 5 customers by revenue. Let me first check the database structure and then query for this information."
+      },
+      {
+        "type": "tool_call",
+        "tool": "list_tables",
+        "input": {},
+        "output": {
+          "schema": "Taulut kuvitteellisen verkkokaupan tietokannassa:\n\nasiakkaat (id, nimi, kaupunki, segmentti, liittymispaiva)\n  - segmentti: 'uusi' | 'kanta-asiakas' | 'yritysasiakas'\n  - liittymispaiva: ISO-päivämäärä (YYYY-MM-DD)\n\ntuotteet (id, nimi, kategoria, hinta)\n  - hinta: euroina (REAL)\n\ntilaukset (id, asiakas_id, tilauspaiva, tila)\n  - asiakas_id viittaa asiakkaat.id:hen\n  - tila: 'maksettu' | 'toimitettu' | 'palautettu' | 'peruttu'\n  - tilauspaiva: ISO-päivämäärä (YYYY-MM-DD), kattaa viimeiset ~12 kuukautta\n\ntilausrivit (id, tilaus_id, tuote_id, maara, yksikkohinta)\n  - tilaus_id viittaa tilaukset.id:hen\n  - tuote_id viittaa tuotteet.id:hen\n  - liikevaihto per rivi = maara * yksikkohinta"
+        }
+      },
+      {
+        "type": "thought",
+        "text": "Now let me query for the top 5 customers by revenue:"
+      },
+      {
+        "type": "tool_call",
+        "tool": "run_query",
+        "input": {
+          "sql": "\nSELECT \n  a.id,\n  a.nimi,\n  a.kaupunki,\n  a.segmentti,\n  SUM(tr.maara * tr.yksikkohinta) as kokonaisliikevaihto\nFROM asiakkaat a\nLEFT JOIN tilaukset t ON a.id = t.asiakas_id\nLEFT JOIN tilausrivit tr ON t.id = tr.tilaus_id\nWHERE t.tila IN ('maksettu', 'toimitettu')\nGROUP BY a.id, a.nimi, a.kaupunki, a.segmentti\nORDER BY kokonaisliikevaihto DESC\nLIMIT 5\n"
+        },
+        "output": {
+          "rows": [
+            {
+              "id": 110,
+              "nimi": "Ville Ahonen",
+              "kaupunki": "Helsinki",
+              "segmentti": "kanta-asiakas",
+              "kokonaisliikevaihto": 2838.5
+            },
+            {
+              "id": 16,
+              "nimi": "Emilia Kallio",
+              "kaupunki": "Vaasa",
+              "segmentti": "yritysasiakas",
+              "kokonaisliikevaihto": 2314.7
+            },
+            {
+              "id": 118,
+              "nimi": "Tomi Ahonen",
+              "kaupunki": "Kuopio",
+              "segmentti": "kanta-asiakas",
+              "kokonaisliikevaihto": 2308.1
+            },
+            {
+              "id": 126,
+              "nimi": "Antti Korhonen",
+              "kaupunki": "Jyväskylä",
+              "segmentti": "uusi",
+              "kokonaisliikevaihto": 2268.1
+            },
+            {
+              "id": 12,
+              "nimi": "Johanna Korhonen",
+              "kaupunki": "Vaasa",
+              "segmentti": "kanta-asiakas",
+              "kokonaisliikevaihto": 2180.9
+            }
+          ],
+          "truncated": false
+        }
+      }
+    ],
+    "answer": "Based on the analysis of your order data, here are the top 5 customers by revenue:\n\n1. Ville Ahonen from Helsinki - kanta-asiakas segment with 2838.50 euros in revenue\n\n2. Emilia Kallio from Vaasa - yritysasiakas segment with 2314.70 euros in revenue\n\n3. Tomi Ahonen from Kuopio - kanta-asiakas segment with 2308.10 euros in revenue\n\n4. Antti Korhonen from Jyväskylä - uusi segment with 2268.10 euros in revenue\n\n5. Johanna Korhonen from Vaasa - kanta-asiakas segment with 2180.90 euros in revenue\n\nThe revenue figures include only paid and delivered orders. Ville Ahonen is clearly your highest-value customer, generating nearly 2839 euros in revenue, followed by Emilia Kallio with just over 2314 euros."
+  },
+  "miten tilausten tilat jakautuvat (maksettu/toimitettu/palautettu/peruttu)?": {
+    "steps": [
+      {
+        "type": "thought",
+        "text": "Haen tietoja tilausten tiloista tietokannasta."
+      },
+      {
+        "type": "tool_call",
+        "tool": "run_query",
+        "input": {
+          "sql": "SELECT tila, COUNT(*) as lukumaara FROM tilaukset GROUP BY tila ORDER BY lukumaara DESC"
+        },
+        "output": {
+          "rows": [
+            {
+              "tila": "toimitettu",
+              "lukumaara": 275
+            },
+            {
+              "tila": "maksettu",
+              "lukumaara": 94
+            },
+            {
+              "tila": "palautettu",
+              "lukumaara": 76
+            },
+            {
+              "tila": "peruttu",
+              "lukumaara": 75
+            }
+          ],
+          "truncated": false
+        }
+      }
+    ],
+    "answer": "Tilausten tilat jakautuvat seuraavasti:\n\nToimitettu: 275 tilausta (52,4%)\nMaksettu: 94 tilausta (17,9%)\nPalautettu: 76 tilausta (14,5%)\nPerutty: 75 tilausta (14,3%)\n\nYhteensä tilauksia on 520 kappaletta. Suurin osa tilauksista (yli puolet) on jo toimitettu asiakkaalle. Maksetut mutta vielä toimittamattomat tilaukset muodostavat noin 18 prosenttia koko volyymista. Palautukset ja perutyt tilaukset ovat suurin piirtein yhtä yleisiä, kumpikin noin 14 prosentissa kaikista tilauksista."
+  },
+  "how are order statuses distributed (paid/shipped/returned/cancelled)?": {
+    "steps": [
+      {
+        "type": "thought",
+        "text": "I'll query the database to see how the order statuses are distributed."
+      },
+      {
+        "type": "tool_call",
+        "tool": "run_query",
+        "input": {
+          "sql": "SELECT tila, COUNT(*) as lukumaara FROM tilaukset GROUP BY tila ORDER BY lukumaara DESC"
+        },
+        "output": {
+          "rows": [
+            {
+              "tila": "toimitettu",
+              "lukumaara": 275
+            },
+            {
+              "tila": "maksettu",
+              "lukumaara": 94
+            },
+            {
+              "tila": "palautettu",
+              "lukumaara": 76
+            },
+            {
+              "tila": "peruttu",
+              "lukumaara": 75
+            }
+          ],
+          "truncated": false
+        }
+      }
+    ],
+    "answer": "The order statuses are distributed as follows:\n\nShipped (toimitettu): 275 orders - This is the largest group, representing orders that have been successfully delivered to customers.\n\nPaid (maksettu): 94 orders - These are orders that have been paid for but not yet shipped.\n\nReturned (palautettu): 76 orders - This represents orders that customers have returned.\n\nCancelled (peruttu): 75 orders - These are orders that have been cancelled.\n\nIn total, there are 520 orders in the database. The majority of orders (about 53%) have reached the shipped status, which is a positive sign for order fulfillment. The paid but not yet shipped orders make up about 18% of the total, while returns and cancellations each account for roughly 15% of orders."
+  },
+  "mikä on keskimääräinen tilauksen arvo kaupungeittain?": {
+    "steps": [
+      {
+        "type": "thought",
+        "text": "Haetaan tietokannan rakenne ja lasketaan keskimääräinen tilauksen arvo kaupungeittain."
+      },
+      {
+        "type": "tool_call",
+        "tool": "list_tables",
+        "input": {},
+        "output": {
+          "schema": "Taulut kuvitteellisen verkkokaupan tietokannassa:\n\nasiakkaat (id, nimi, kaupunki, segmentti, liittymispaiva)\n  - segmentti: 'uusi' | 'kanta-asiakas' | 'yritysasiakas'\n  - liittymispaiva: ISO-päivämäärä (YYYY-MM-DD)\n\ntuotteet (id, nimi, kategoria, hinta)\n  - hinta: euroina (REAL)\n\ntilaukset (id, asiakas_id, tilauspaiva, tila)\n  - asiakas_id viittaa asiakkaat.id:hen\n  - tila: 'maksettu' | 'toimitettu' | 'palautettu' | 'peruttu'\n  - tilauspaiva: ISO-päivämäärä (YYYY-MM-DD), kattaa viimeiset ~12 kuukautta\n\ntilausrivit (id, tilaus_id, tuote_id, maara, yksikkohinta)\n  - tilaus_id viittaa tilaukset.id:hen\n  - tuote_id viittaa tuotteet.id:hen\n  - liikevaihto per rivi = maara * yksikkohinta"
+        }
+      },
+      {
+        "type": "thought",
+        "text": "Nyt haen keskimääräisen tilauksen arvon kaupungeittain:"
+      },
+      {
+        "type": "tool_call",
+        "tool": "run_query",
+        "input": {
+          "sql": "SELECT \n  a.kaupunki,\n  ROUND(AVG(SUM(tr.maara * tr.yksikkohinta)), 2) as keskimaaraiset_tilauksen_arvo,\n  COUNT(DISTINCT t.id) as tilausten_lukumaara\nFROM asiakkaat a\nJOIN tilaukset t ON a.id = t.asiakas_id\nJOIN tilausrivit tr ON t.id = tr.tilaus_id\nGROUP BY a.kaupunki\nORDER BY keskimaaraiset_tilauksen_arvo DESC"
+        },
+        "output": {
+          "error": "misuse of aggregate function SUM()"
+        }
+      },
+      {
+        "type": "thought",
+        "text": "Korjataan kysely käyttämällä apukyselyä:"
+      },
+      {
+        "type": "tool_call",
+        "tool": "run_query",
+        "input": {
+          "sql": "SELECT \n  a.kaupunki,\n  ROUND(AVG(tilaus_arvo), 2) as keskimaaraiset_tilauksen_arvo,\n  COUNT(DISTINCT t.id) as tilausten_lukumaara\nFROM asiakkaat a\nJOIN tilaukset t ON a.id = t.asiakas_id\nJOIN (\n  SELECT tilaus_id, SUM(maara * yksikkohinta) as tilaus_arvo\n  FROM tilausrivit\n  GROUP BY tilaus_id\n) tr ON t.id = tr.tilaus_id\nGROUP BY a.kaupunki\nORDER BY keskimaaraiset_tilauksen_arvo DESC"
+        },
+        "output": {
+          "rows": [
+            {
+              "kaupunki": "Pori",
+              "keskimaaraiset_tilauksen_arvo": 348.37,
+              "tilausten_lukumaara": 51
+            },
+            {
+              "kaupunki": "Oulu",
+              "keskimaaraiset_tilauksen_arvo": 307.15,
+              "tilausten_lukumaara": 34
+            },
+            {
+              "kaupunki": "Helsinki",
+              "keskimaaraiset_tilauksen_arvo": 302.16,
+              "tilausten_lukumaara": 33
+            },
+            {
+              "kaupunki": "Kuopio",
+              "keskimaaraiset_tilauksen_arvo": 296.85,
+              "tilausten_lukumaara": 60
+            },
+            {
+              "kaupunki": "Jyväskylä",
+              "keskimaaraiset_tilauksen_arvo": 283.39,
+              "tilausten_lukumaara": 75
+            },
+            {
+              "kaupunki": "Vaasa",
+              "keskimaaraiset_tilauksen_arvo": 274.2,
+              "tilausten_lukumaara": 78
+            },
+            {
+              "kaupunki": "Joensuu",
+              "keskimaaraiset_tilauksen_arvo": 266.39,
+              "tilausten_lukumaara": 37
+            },
+            {
+              "kaupunki": "Tampere",
+              "keskimaaraiset_tilauksen_arvo": 230.26,
+              "tilausten_lukumaara": 53
+            },
+            {
+              "kaupunki": "Turku",
+              "keskimaaraiset_tilauksen_arvo": 228.45,
+              "tilausten_lukumaara": 44
+            },
+            {
+              "kaupunki": "Lahti",
+              "keskimaaraiset_tilauksen_arvo": 226.92,
+              "tilausten_lukumaara": 55
+            }
+          ],
+          "truncated": false
+        }
+      }
+    ],
+    "answer": "Tässä on keskimääräinen tilauksen arvo kaupungeittain:\n\nPori johtaa keskimääräisen tilauksen arvolla 348,37 euroa, jonka seuraavat Oulu 307,15 eurolla ja Helsinki 302,16 eurolla. Kuopio sijoittuu neljänneksi 296,85 eurolla.\n\nKeskivertaisesti alhaisemmat tilausten arvot ovat Lahdessa (226,92 euroa) ja Turussa (228,45 euroa). Jyväskylä, Vaasa ja Joensuu sijoittuvat keskitasoon arvojen ollessa 266-283 euroa välillä.\n\nOn mielenkiintoista, että Porin asiakkaat tekevät selvästi suurempia tilauksia kuin muualla, vaikka tilausten lukumäärä on varsin kohtuullinen (51 tilausta). Tampereella ja Turussa, jotka ovat suuriakin kaupunkeja, keskimääräiset tilauksen arvot ovat alhaisempia verrattuna pienempiin kaupunkeihin kuten Poriin ja Ouluun."
+  },
+  "what's the average order value by city?": {
+    "steps": [
+      {
+        "type": "thought",
+        "text": "I'll help you find the average order value by city. Let me first check the database structure and then calculate that for you."
+      },
+      {
+        "type": "tool_call",
+        "tool": "list_tables",
+        "input": {},
+        "output": {
+          "schema": "Taulut kuvitteellisen verkkokaupan tietokannassa:\n\nasiakkaat (id, nimi, kaupunki, segmentti, liittymispaiva)\n  - segmentti: 'uusi' | 'kanta-asiakas' | 'yritysasiakas'\n  - liittymispaiva: ISO-päivämäärä (YYYY-MM-DD)\n\ntuotteet (id, nimi, kategoria, hinta)\n  - hinta: euroina (REAL)\n\ntilaukset (id, asiakas_id, tilauspaiva, tila)\n  - asiakas_id viittaa asiakkaat.id:hen\n  - tila: 'maksettu' | 'toimitettu' | 'palautettu' | 'peruttu'\n  - tilauspaiva: ISO-päivämäärä (YYYY-MM-DD), kattaa viimeiset ~12 kuukautta\n\ntilausrivit (id, tilaus_id, tuote_id, maara, yksikkohinta)\n  - tilaus_id viittaa tilaukset.id:hen\n  - tuote_id viittaa tuotteet.id:hen\n  - liikevaihto per rivi = maara * yksikkohinta"
+        }
+      },
+      {
+        "type": "thought",
+        "text": "Now let me query the average order value by city:"
+      },
+      {
+        "type": "tool_call",
+        "tool": "run_query",
+        "input": {
+          "sql": "\nSELECT \n  a.kaupunki,\n  ROUND(AVG(tr.maara * tr.yksikkohinta), 2) as keskimaarainen_tilauksen_arvo\nFROM asiakkaat a\nJOIN tilaukset t ON a.id = t.asiakas_id\nJOIN tilausrivit tr ON t.id = tr.tilaus_id\nGROUP BY a.kaupunki\nORDER BY keskimaarainen_tilauksen_arvo DESC\n"
+        },
+        "output": {
+          "rows": [
+            {
+              "kaupunki": "Pori",
+              "keskimaarainen_tilauksen_arvo": 145.63
+            },
+            {
+              "kaupunki": "Oulu",
+              "keskimaarainen_tilauksen_arvo": 137.41
+            },
+            {
+              "kaupunki": "Helsinki",
+              "keskimaarainen_tilauksen_arvo": 126.22
+            },
+            {
+              "kaupunki": "Vaasa",
+              "keskimaarainen_tilauksen_arvo": 118.82
+            },
+            {
+              "kaupunki": "Joensuu",
+              "keskimaarainen_tilauksen_arvo": 113.29
+            },
+            {
+              "kaupunki": "Kuopio",
+              "keskimaarainen_tilauksen_arvo": 112.73
+            },
+            {
+              "kaupunki": "Jyväskylä",
+              "keskimaarainen_tilauksen_arvo": 111.86
+            },
+            {
+              "kaupunki": "Tampere",
+              "keskimaarainen_tilauksen_arvo": 100.86
+            },
+            {
+              "kaupunki": "Lahti",
+              "keskimaarainen_tilauksen_arvo": 99.05
+            },
+            {
+              "kaupunki": "Turku",
+              "keskimaarainen_tilauksen_arvo": 92.22
+            }
+          ],
+          "truncated": false
+        }
+      }
+    ],
+    "answer": "Here's the average order value by city, ranked from highest to lowest:\n\nPori leads with an average order value of 145.63 euros. Oulu follows closely with 137.41 euros, and Helsinki comes in third with 126.22 euros. Vaasa averages 118.82 euros, Joensuu 113.29 euros, and Kuopio 112.73 euros. Jyväskylä has an average of 111.86 euros. The lower-ranked cities are Tampere at 100.86 euros, Lahti at 99.05 euros, and Turku at the bottom with 92.22 euros.\n\nThe difference between the highest and lowest is quite significant, with Pori's average order value being about 58 euros higher than Turku's."
+  }
+}

@@ -6,19 +6,13 @@ import { projects } from "./projectsData";
 
 const ui = {
   fi: {
-    overline: "Projects",
     heading: "Projektit",
-    intro:
-      "Tänne kokoan projekteja, joissa harjoittelen web-kehitystä, Reactia, Next.js:ää, API-rajapintoja ja modernia käyttöliittymien rakentamista.",
     github: "GitHub",
     demo: "Demo",
     readMore: "Lue lisää →",
   },
   en: {
-    overline: "Projects",
     heading: "Projects",
-    intro:
-      "Here I collect projects where I practice web development, React, Next.js, API integrations, and building modern user interfaces.",
     github: "GitHub",
     demo: "Demo",
     readMore: "Read more →",
@@ -48,7 +42,7 @@ export default function ProjectsContent() {
   let runningIndex = 0;
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-16">
+    <div className="mx-auto max-w-5xl px-6 py-16">
       <section className="mb-12">
         <h1 className="font-heading text-7xl font-black tracking-tighter text-accent-600 md:text-8xl dark:text-accent-400">
           {t.heading}
@@ -127,6 +121,8 @@ export default function ProjectsContent() {
                       {project.liveUrl && project.liveUrl !== "#" && (
                         <a
                           href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-sm font-semibold text-accent-600 underline decoration-accent-300 underline-offset-4 transition hover:decoration-accent-600 dark:text-accent-400 dark:decoration-accent-800 dark:hover:decoration-accent-400"
                         >
                           {t.demo}
@@ -140,6 +136,6 @@ export default function ProjectsContent() {
           </div>
         </section>
       ))}
-    </main>
+    </div>
   );
 }

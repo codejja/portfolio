@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div>
           <p className="text-sm text-stone-500 dark:text-stone-500">
-            © 2026{" "}
+            © {new Date().getFullYear()}{" "}
             <span className="font-semibold text-stone-700 dark:text-stone-300">
               Janne Kujala
             </span>

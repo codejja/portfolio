@@ -24,6 +24,11 @@ export function LanguageProvider({ children }) {
     } catch {
       // ei haittaa jos tallennus ei onnistu
     }
+    // Huom: tämä päivittää <html lang>-attribuutin vain selaimessa, kun
+    // käyttäjä vaihtaa kieltä. Palvelimen renderöimä HTML ja metadata (esim.
+    // layout.js:n title/description) pysyvät aina suomeksi, joten hakukoneet
+    // ja some-jakojen esikatselut näkevät aina suomenkielisen version kielen
+    // vaihdosta riippumatta.
     document.documentElement.lang = lang;
   }, [lang]);
 

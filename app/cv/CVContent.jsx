@@ -56,13 +56,6 @@ const content = {
         date: "08/2019–04/2020",
       },
       {
-        title: "Taksinkuljettaja",
-        company: "Lahden aluetaksi Oy",
-        description:
-          "Asiakas- ja tavarakuljetukset, itsenäinen ja nopea päätöksenteko.",
-        date: "03/2019–07/2019",
-      },
-      {
         title: "Elintarviketuotannon ja kahvilatoiminnan tehtävät",
         company: "mm. Brunberg Oy ja Fazer Leipomot Oy",
         description: "Tuotanto, laadunvalvonta ja tuotekehitys.",
@@ -129,13 +122,6 @@ const content = {
         date: "08/2019–04/2020",
       },
       {
-        title: "Taxi Driver",
-        company: "Lahden aluetaksi Oy",
-        description:
-          "Passenger and goods transport, independent and quick decision-making.",
-        date: "03/2019–07/2019",
-      },
-      {
         title: "Food Production and Café Operations",
         company: "incl. Brunberg Oy and Fazer Bakeries Oy",
         description: "Production, quality control, and product development.",
@@ -157,7 +143,7 @@ export default function CVContent() {
   const t = content[lang];
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-16">
+    <div className="mx-auto max-w-5xl px-6 py-16">
       <section className="mb-12">
         <h1 className="font-heading text-7xl font-black tracking-tighter text-accent-600 md:text-8xl dark:text-accent-400">
           {t.heading}
@@ -231,6 +217,6 @@ export default function CVContent() {
           </section>
         </aside>
       </div>
-    </main>
+    </div>
   );
 }

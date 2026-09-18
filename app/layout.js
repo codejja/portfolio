@@ -25,14 +25,18 @@ const spaceMono = Space_Mono({
 
 export const metadata = {
   title: "Janne Kujala",
-  description: "Portfolio-sivusto ensimmäisen IT-alan työpaikan saamiseksi.",
+  description: "Janne Kujala – portfolio ja CV. Liiketoiminta, data, automaatio ja tekoäly.",
 };
 
 export default function RootLayout({ children }) {
   return (
+    // "dark" tässä ja ThemeContextin oletusarvo ("dark") kuuluvat yhteen:
+    // molemmat pitävät sivun oletuksena tummana ennen kuin JS ehtii lukea
+    // localStoragesta käyttäjän valinnan. Jos vain toista muuttaa, sivu
+    // välähtää hetkeksi väärässä teemassa ennen React-hydraatiota.
     <html
       lang="fi"
-      className="h-full"
+      className="h-full dark"
     >
       <body className={`${inter.className} ${spaceGrotesk.variable} ${spaceMono.variable} flex min-h-screen flex-col bg-stone-50 text-stone-900 print:bg-white dark:bg-stone-950 dark:text-stone-100 dark:print:bg-white dark:print:text-stone-900`}>
         <ThemeProvider>

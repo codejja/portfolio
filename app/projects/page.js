@@ -2,7 +2,7 @@ import ProjectsContent from "./ProjectsContent";
 
 export const metadata = {
   title: "Projektit | Janne Kujala",
-  description: "Projekteja, joissa Janne Kujala on harjoitellut web-kehitystä, Reactia, Next.js:ää ja muita moderneja teknologioita.",
+  description: "Projekteja data-analytiikasta, automaatiosta ja tekoälyn hyödyntämisestä liiketoiminnan tukena: Power BI, Power Automate, Azure ja tekoälyagentti.",
 };
 
 export default function ProjectsPage() {
