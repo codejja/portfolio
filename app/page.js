@@ -8,7 +8,7 @@ const text = {
   fi: {
     ctaTitle: "Etsin harjoittelupaikkaa IT-alalta",
     ctaText:
-      "Olen motivoitunut oppimaan lisää käytännön projekteissa ja kasvamaan osaajana, joka yhdistää liiketoiminnan, datan ja automaation.",
+      "Etsin harjoittelupaikkaa, jossa pääsen hyödyntämään liiketoiminnan ymmärrystäni ja kehittämään osaamistani datan, teknologian ja digitaalisten ratkaisujen parissa. Tuon mukanani käytännönläheisen otteen, kiinnostuksen oppia uutta sekä silmää toimiville ja visuaalisille ratkaisuille.",
     ctaButton: "Katso yhteystietoni",
   },
   en: {

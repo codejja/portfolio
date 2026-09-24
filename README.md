@@ -43,13 +43,13 @@ paikallista SQLite-tietokantaa vasten, ja korjaa kyselyn jos se epäonnistuu.
 
 Tietokantana on Node.js:n sisäänrakennettu `node:sqlite`-moduuli (vaatii Node.js
 22.13+ tai 23.4+, ks. `engines.node` package.json:ssa). Se ei vaadi mitään
-natiivin koodin kääntämistä eikä erillistä pakettia asennukseen — ei siis
+natiivin koodin kääntämistä eikä erillistä pakettia asennukseen: ei siis
 node-gyp/Python-riippuvuuksia, jotka aiheuttivat aiemmin `npm install`-ongelmia
 Windowsilla. Node tulostaa konsoliin "ExperimentalWarning: SQLite is an
 experimental feature" -varoituksen, se on normaalia eikä estä toimintaa.
 
 **Live vs. esilaskettu tila.** Julkinen, tuotantoon deployattu sivu ei kutsu
-Claude APIa livenä jokaisella vierailijalla — se olisi ennustamaton kuluriski
+Claude APIa livenä jokaisella vierailijalla, koska se olisi ennustamaton kuluriski
 avoimella endpointilla, jonka kuka tahansa netissä voisi teoriassa spämmätä.
 Sen sijaan neljän esimerkkikysymyksen vastaukset lasketaan kertaalleen etukäteen
 (`scripts/precompute-data-agent-examples.mjs`) ja tallennetaan
@@ -85,5 +85,5 @@ Huomioita tuotantoon viedessä:
   Aseta lisäksi kuluraja suoraan Anthropicin konsolista.
 - Tietokantayhteys avataan aina `readOnly: true` -tilassa, ja jokainen agentin
   ajama SQL-kysely tarkistetaan koodissa (vain yksi SELECT-lause, ei
-  kirjoitusoperaatioita) ennen ajoa — tämä koskee sekä live- että
+  kirjoitusoperaatioita) ennen ajoa. Tämä koskee sekä live- että
   esilaskentatilaa.

@@ -8,15 +8,15 @@ const content = {
     groups: [
       {
         title: "Business & Automation",
-        skills: ["Microsoft 365", "SharePoint", "Power Automate", "Power Apps", "UiPath", "Requirement Specification", "Software Design"],
+        skills: ["Microsoft 365", "SharePoint", "Power Platform (Power Automate, Power Apps, Power BI)", "Claude AI", "Requirement Specification", "Software Design"],
       },
       {
         title: "Cloud & Analytics",
-        skills: ["Azure Cloud", "Azure SQL", "Azure Data Factory", "ETL Pipelines", "Logic Apps", "Power BI", "Data Analytics", "Exploratory Data Analysis"],
+        skills: ["Azure Cloud", "Azure SQL", "Azure Data Factory", "ETL Pipelines", "Logic Apps", "Data Analytics", "Exploratory Data Analysis"],
       },
       {
         title: "Web Development",
-        skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS", "Figma", "Responsive Design"],
+        skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS", "Figma", "Webflow","Responsive Design"],
       },
       {
         title: "Backend & Databases",
@@ -24,7 +24,7 @@ const content = {
       },
       {
         title: "Development Tools & Workflow",
-        skills: ["Git", "GitHub", "VS Code", "Docker", "Linux", "Jira", "Confluence", "Scrum", "Agile"],
+        skills: ["Git", "GitHub", "VS Code", "Jira", "Confluence", "Scrum", "Agile"],
       },
     ],
   },
@@ -33,15 +33,15 @@ const content = {
     groups: [
       {
         title: "Business & Automation",
-        skills: ["Microsoft 365", "SharePoint", "Power Automate", "Power Apps", "UiPath", "Requirement Specification", "Software Design"],
+        skills: ["Microsoft 365", "SharePoint", "Power Platform (Power Automate, Power Apps, Power BI)", "Claude AI", "Requirement Specification", "Software Design"],
       },
       {
         title: "Cloud & Analytics",
-        skills: ["Azure Cloud", "Azure SQL", "Azure Data Factory", "ETL Pipelines", "Logic Apps", "Power BI", "Data Analytics", "Exploratory Data Analysis"],
+        skills: ["Azure Cloud", "Azure SQL", "Azure Data Factory", "ETL Pipelines", "Logic Apps", "Data Analytics", "Exploratory Data Analysis"],
       },
       {
         title: "Web Development",
-        skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS", "Figma", "Responsive Design"],
+        skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS", "Figma", "Webflow", "Responsive Design"],
       },
       {
         title: "Backend & Databases",
@@ -49,7 +49,7 @@ const content = {
       },
       {
         title: "Development Tools & Workflow",
-        skills: ["Git", "GitHub", "VS Code", "Docker", "Linux", "Jira", "Confluence", "Scrum", "Agile"],
+        skills: ["Git", "GitHub", "VS Code", "Jira", "Confluence", "Scrum", "Agile"],
       },
     ],
   },

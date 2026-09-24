@@ -6,37 +6,33 @@ const content = {
   fi: {
     overline: "Contact",
     heading: "Yhteystiedot",
-    intro:
-      "Jos sinulla on harjoittelupaikka, junior-rooli tai projekti, jossa pääsisin oppimaan käytännössä — laita viestiä, jutellaan.",
     getInTouch: "Ota yhteyttä",
     email: "Sähköposti",
     seekingHeading: "Etsin harjoittelupaikkaa",
     seekingText:
-      "Haluan päästä tekemään oikeita projekteja, oppia kokeneemmilta ja kasvaa vähän kerrallaan osaajana, joka yhdistää liiketoiminnan ja teknologian.",
+      "Onko sinulla harjoittelupaikka, junior-rooli tai projekti, jossa pääsisin soveltamaan osaamistani käytännössä? Ota yhteyttä, niin jutellaan.",
     interestsHeading: "Kiinnostuksen kohteet",
     interests: [
-      "Liiketoiminnan ymmärtäminen datan avulla",
-      "Prosessien automaatio ja raportointi",
-      "Järjestelmät ja rajapinnat (API)",
-      "Tekoälyn hyödyntäminen käytännössä",
+      "Datan hyödyntäminen ja analytiikka",
+      "Web ja digitaaliset ratkaisut",
+      "Visuaalinen suunnittelu",
+      "Luova teknologian hyödyntäminen",
     ],
   },
   en: {
     overline: "Contact",
     heading: "Contact",
-    intro:
-      "If you've got an internship, a junior role, or a project where I could learn hands-on — get in touch, let's talk.",
     getInTouch: "Get in touch",
     email: "Email",
     seekingHeading: "Looking for an internship",
     seekingText:
-      "I want to work on real projects, learn from people who've been doing this longer, and grow one step at a time into someone who bridges business and technology.",
+      "If you've got an internship, a junior role, or a project where I could learn hands-on, get in touch, let's talk.",
     interestsHeading: "Areas of interest",
     interests: [
       "Understanding business through data",
-      "Process automation and reporting",
-      "Systems and APIs",
-      "Applying AI in practice",
+      "Web & Digital Solutions",
+      "Visual Design",
+      "Creative Use of Technology",
     ],
   },
 };

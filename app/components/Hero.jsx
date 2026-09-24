@@ -7,24 +7,24 @@ import { useLanguage } from "../context/LanguageContext";
 const text = {
   fi: {
     label: "Portfolio",
-    role: "IT-tradenomiopiskelija · Liiketoiminta, data & automaatio",
+    role: "Yhdistän datan, teknologian ja visuaalisen toteutuksen",
     description: [
-      "Taustani on liiketaloudessa, ja yli kuuden vuoden kokemus etuuskäsittelystä Kelassa on opettanut, miten iso organisaatio oikeasti toimii käytännössä. Täydennän tätä nyt IT-osaamisella: ymmärrän mitä liiketoiminta yrittää saavuttaa, käytän dataa sen selvittämiseen ja rakennan automaatioita ja raportointia, jotka tekevät työstä sujuvampaa.",
-      "Olen opetellut Power Automatea, Power BI:tä, Azure-palveluita, SQL:ää ja rajapintojen toimintaa tekemällä: hyväksyntätyönkulkuja, data-arkkitehtuureja ja raportointiratkaisuja opinnoissa ja omissa projekteissa. Käytän tekoälyä työkaluna osana tätä kokonaisuutta, esimerkiksi datan tulkinnan apuna.",
-      "Tavoitteenani ei ole profiloitua puhtaaksi ohjelmistokehittäjäksi, vaan olla henkilö, joka ymmärtää sekä liiketoimintaa että sitä tukevaa teknologiaa: dataa, automaatiota, järjestelmiä ja tekoälyä työkaluna.",
-      "Vapaa-ajalla minut löytää yleensä maantiepyöräilemästä, kuntosalilta, tai pelaamasta sulkapalloa tai padelia.",
+      "Taustani on liiketaloudessa ja asiantuntijatyössä, ja olen täydentänyt osaamistani IT-alan opinnoilla. Minua kiinnostaa erityisesti datan hyödyntäminen liiketoiminnan kehittämisessä, prosessien automatisointi ja teknologian käyttäminen työn sujuvoittamiseen.",
+      "Olen rakentanut osaamistani muun muassa Power Platformin, SQL:n ja web-kehityksen parissa sekä hyödyntänyt tekoälyä osana tekemistäni. Teknisen puolen lisäksi minua kiinnostaa visuaalinen suunnittelu ja digitaalisten palveluiden toteuttaminen.",
+      "Tavoitteeni on yhdistää liiketoiminnan ymmärrys ja teknologia sekä hyödyntää dataa, analytiikkaa ja automaatiota liiketoiminnan kehittämisessä.",
+      "Vapaa-ajalla mm. maantiepyöräilen, kuvaan dronella, käyn kuntosalilla ja pelaan sulkapalloa tai padelia.",
     ],
     viewProjects: "Katso projektit",
     viewCv: "Katso CV",
   },
   en: {
     label: "Portfolio",
-    role: "IT Student · Business, Data & Automation",
+    role: "I bring data, technology and visual execution together.",
     description: [
-      "My background is in business, and over six years handling benefit processing at Kela taught me how a large organization actually works in practice. I'm now building IT skills on top of that: understanding what a business is trying to achieve, using data to find out, and building the automation and reporting that make the work run smoother.",
-      "I've learned Power Automate, Power BI, Azure services, SQL, and how APIs work by doing: building approval workflows, data architectures, and reporting solutions in my studies and my own projects. I use AI as a tool as part of that, for example to help interpret data.",
-      "My goal isn't to be a pure software developer, but to be someone who understands both the business side and the technology that supports it: data, automation, systems, and AI as a tool.",
-      "In my spare time, you can usually find me road cycling, at the gym, or playing badminton or padel.",
+      "My background is in business and specialist work, and I have complemented my experience with studies in IT. I’m particularly interested in using data to support business development, automating processes, and using technology to make work more efficient.",
+      "I have developed my skills in areas such as Power Platform, SQL, and web development, while also using AI as part of my work. Alongside the technical side, I’m interested in visual design and creating digital services.",
+      "My goal is to combine business understanding with technology and use data, analytics, and automation to support business development.",
+      "Outside of work and studies, I enjoy road cycling, drone photography, going to the gym, and playing badminton or padel.",
     ],
     viewProjects: "View projects",
     viewCv: "View CV",
@@ -35,7 +35,7 @@ export default function Hero() {
   const { lang } = useLanguage();
   const t = text[lang];
 
-  const skills = ["Business Understanding", "Data Analytics", "Automation & Reporting", "Systems & APIs", "Applied AI"];
+  const skills = ["Business Understanding", "Data Analytics", "Automation", "Systems & Integrations", "Web & Visual Design", "Applied AI"];
 
   return (
     <section className="py-6">
