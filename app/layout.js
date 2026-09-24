@@ -26,8 +26,8 @@ const spaceMono = Space_Mono({
 
 export const metadata = {
   metadataBase: new URL("https://jannekujala.vercel.app"),
-  title: "Janne Kujala",
-  description: "Janne Kujala – portfolio ja CV. Liiketoiminta, data, automaatio ja tekoäly.",
+  title: "Janne Kujala | Data, Web & Digital",
+  description: "Janne Kujala – portfolio ja CV. Data, web-kehitys, digitaaliset ratkaisut ja visuaalinen toteutus.",
 };
 
 export default function RootLayout({ children }) {
