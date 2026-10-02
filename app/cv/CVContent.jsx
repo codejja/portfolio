@@ -18,12 +18,44 @@ const content = {
       {
         title: "Tietojenkäsittelyn tradenomi, muuntokoulutus (93 op)",
         institution: "Hämeen ammattikorkeakoulu",
+        courses: [
+          "Ohjelmoinnin perusteet (Java) (4 op)",
+          "Käyttöliittymän suunnittelu ja toteutus (4 op)",
+          "Analysoinnin perusteet (3 op)",
+          "Käyttöjärjestelmät (4 op)",
+          "Staattisen verkkosivun rakentaminen (5 op)",
+          "Olio-ohjelmointi (3 op)",
+          "Tietokannat (3 op)",
+          "Ohjelmointikehityksen menetelmät (4 op)",
+          "Web ohjelmointi (4 op)",
+          "Testausprosessit (4 op)",
+          "Pilvipalvelut AWS (4 op)",
+          "Sovelluksen suunnittelumenetelmät (3 op)",
+          "Ohjelmistorobotiikka (3 op)",
+          "Sisällönhallintajärjestelmät (3 op)",
+          "Analytiikkaratkaisut (Azure) (4 op)",
+          "Liiketoimintajärjestelmät (5 op)",
+        ],
         extra: "Keskiarvo: 4,75 / 5,00 (60/93 op suoritettu)",
         date: "08/2025–",
       },
       {
-        title: "Tieto- ja viestintätekniikan täydennyskoulutus (42 op)",
+        title: "Tieto- ja viestintätekniikan täydennyskoulutus (39 op)",
         institution: "Jyväskylän avoin ammattikorkeakoulu",
+        courses: [
+          "Johdatus data-analytiikkaan ja tekoälyyn (3 op)",
+          "Tietokannat (3 op)",
+          "Ohjelmoinnin perusteet (Python) (5 op)",
+          "Web-kehitys (4 op)",
+          "Tietojärjestelmät ja arkkitehtuuri (3 op)",
+          "Git-versionhallinta ja GitLab-projektien hallintaympäristö (2 op)",
+          "Linuxin käyttö ja hallinta (4 op)",
+          "Windowsin käyttö ja hallinta (4 op)",
+          "Kyberturvallisuus (5 op)",
+          "ICT-valmiudet (3 op)",
+          "InnoFlash (2 op)",
+          "Tiedonhankinta ja raportointi (1 op)"
+        ],
         extra: "Keskiarvo: 4,60 / 5,00",
         date: "08/2024–05/2025",
       },
@@ -82,14 +114,46 @@ const content = {
     goodLevel: "Good",
     education: [
       {
-        title: "BBA, Business Information Technology — Conversion Programme (93 credits)",
+        title: "Bachelor of Business Administration (BBA), Business Information Technology — Conversion Programme (93 credits)",
         institution: "Häme University of Applied Sciences (HAMK)",
+        courses: [
+          "Basics of Programming (Java) (4 ECTS)",
+          "User Interface Design and Implementation (4 ECTS)",
+          "Basics of Analysis (3 ECTS)",
+          "Operating Systems (4 ECTS)",
+          "Building a Static Website (5 ECTS)",
+          "Object-Oriented Programming (3 ECTS)",
+          "Databases (3 ECTS)",
+          "Software Development Methods (4 ECTS)",
+          "Web Programming (4 ECTS)",
+          "Testing Processes (4 ECTS)",
+          "Cloud Services AWS (4 ECTS)",
+          "Application Design Methods (3 ECTS)",
+          "Robotic Process Automation (3 ECTS)",
+          "Content Management Systems (3 ECTS)",
+          "Analytics Solutions (Azure) (4 ECTS)",
+          "Business Information Systems (5 ECTS)",
+        ],
         extra: "GPA: 4.75 / 5.00 (60/93 credits completed)",
         date: "08/2025–",
       },
       {
         title: "Continuing Education in Information and Communications Technology (42 credits)",
         institution: "Jyväskylä Open University of Applied Sciences",
+        courses: [
+          "Introduction to Data Analytics and Artificial Intelligence (3 ECTS)",
+          "Databases (3 ECTS)",
+          "Basics of Programming (5 ECTS)",
+          "Basics of Web Development (4 ECTS)",
+          "Information Systems and Architecture (3 ECTS)",
+          "Git Version Control and GitLab Project Management (2 ECTS)",
+          "Linux Basics (4 ECTS)",
+          "Windows Basics (4 ECTS)",
+          "Cyber Security (5 ECTS)",
+          "ICT Skills (3 ECTS)",
+          "InnoFlash (2 ECTS)",
+          "Information Seeking and Reporting (1 ECTS)",
+        ],
         extra: "GPA: 4.60 / 5.00",
         date: "08/2024–05/2025",
       },
@@ -170,6 +234,13 @@ export default function CVContent() {
 
                   <h3 className="mt-2 text-lg font-semibold dark:text-white">{item.title}</h3>
                   <p className="mt-1 text-stone-600 dark:text-stone-400">{item.institution}</p>
+
+                  {item.courses && (
+                    <p className="mt-2 text-sm leading-relaxed text-stone-500 dark:text-stone-400">
+                      {item.courses.join(" · ")}
+                    </p>
+                  )}
+                  
                   <p className="mt-1 text-sm text-stone-500 dark:text-stone-500">{item.extra}</p>
                 </li>
               ))}
