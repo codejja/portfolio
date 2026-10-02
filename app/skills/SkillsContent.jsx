@@ -4,55 +4,55 @@ import { useLanguage } from "../context/LanguageContext";
 
 const content = {
   fi: {
-    heading: "Taidot",
-    groups: [
-      {
-        title: "Business & Automation",
-        skills: ["Microsoft 365", "SharePoint", "Power Platform (Power Automate, Power Apps, Power BI)", "Claude AI", "Requirement Specification", "Software Design"],
-      },
-      {
-        title: "Cloud & Analytics",
-        skills: ["Azure Cloud", "Azure SQL", "Azure Data Factory", "ETL Pipelines", "Logic Apps", "Data Analytics", "Exploratory Data Analysis"],
-      },
-      {
-        title: "Web Development",
-        skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS", "Figma", "Webflow","Responsive Design"],
-      },
-      {
-        title: "Backend & Databases",
-        skills: ["PHP", "MySQL", "APIs"],
-      },
-      {
-        title: "Development Tools & Workflow",
-        skills: ["Git", "GitHub", "VS Code", "Jira", "Confluence", "Scrum", "Agile"],
-      },
-    ],
-  },
-  en: {
-    heading: "Skills",
-    groups: [
-      {
-        title: "Business & Automation",
-        skills: ["Microsoft 365", "SharePoint", "Power Platform (Power Automate, Power Apps, Power BI)", "Claude AI", "Requirement Specification", "Software Design"],
-      },
-      {
-        title: "Cloud & Analytics",
-        skills: ["Azure Cloud", "Azure SQL", "Azure Data Factory", "ETL Pipelines", "Logic Apps", "Data Analytics", "Exploratory Data Analysis"],
-      },
-      {
-        title: "Web Development",
-        skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS", "Figma", "Webflow", "Responsive Design"],
-      },
-      {
-        title: "Backend & Databases",
-        skills: ["PHP", "MySQL", "APIs"],
-      },
-      {
-        title: "Development Tools & Workflow",
-        skills: ["Git", "GitHub", "VS Code", "Jira", "Confluence", "Scrum", "Agile"],
-      },
-    ],
-  },
+  heading: "Taidot",
+  groups: [
+    {
+      title: "Liiketoiminta & automaatio",
+      skills: ["Microsoft 365", "Excel", "SharePoint", "Power Platform (Power Automate, Power Apps, Power BI)", "Vaatimusmäärittely", "Tekninen dokumentointi"],
+    },
+    {
+      title: "Pilvi & data-analytiikka",
+      skills: ["Azure (Data Factory, Logic Apps, Azure SQL)", "SQL", "Data-analyysi ja visualisointi"],
+    },
+    {
+      title: "Web-kehitys",
+      skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS", "Figma", "Webflow"],
+    },
+    {
+      title: "Backend & tietokannat",
+      skills: ["PHP", "MySQL", "Python (perusteet)", "Rajapinnat (API)"],
+    },
+    {
+      title: "Työkalut & menetelmät",
+      skills: ["Git", "GitHub", "VS Code", "Jira", "Confluence", "Scrum", "AI-työkalut (Claude, Copilot, ChatGPT)"],
+    },
+  ],
+},
+en: {
+  heading: "Skills",
+  groups: [
+    {
+      title: "Business & Automation",
+      skills: ["Microsoft 365", "Excel", "SharePoint", "Power Platform (Power Automate, Power Apps, Power BI)", "Requirements Specification", "Technical Documentation"],
+    },
+    {
+      title: "Cloud & Data Analytics",
+      skills: ["Azure (Data Factory, Logic Apps, Azure SQL)", "SQL", "Data Analysis and Visualisation"],
+    },
+    {
+      title: "Web Development",
+      skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS", "Figma", "Webflow"],
+    },
+    {
+      title: "Backend & Databases",
+      skills: ["PHP", "MySQL", "Python (basics)", "APIs"],
+    },
+    {
+      title: "Tools & Methods",
+      skills: ["Git", "GitHub", "VS Code", "Jira", "Confluence", "Scrum", "AI Tools (Claude, Copilot, ChatGPT)"],
+    },
+  ],
+},
 };
 
 export default function SkillsContent() {

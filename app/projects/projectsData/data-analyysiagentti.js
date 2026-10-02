@@ -7,8 +7,8 @@ export const dataAnalyysiagentti = {
   },
   status: { fi: "Demo", en: "Demo" },
   summary: {
-    fi: "Tekoälyagentti, joka vastaa liiketoimintakysymyksiin luonnollisella kielellä: tarkistaa tietokannan skeeman, kirjoittaa ja ajaa SQL-kyselyn itse, korjaa virheet itsenäisesti ja perustelee vastauksen oikeilla luvuilla. Julkinen demo näyttää esilaskettuja esimerkkejä kuluriskin hallitsemiseksi, koodi ajettavissa livenä.",
-    en: "An AI agent that answers business questions in plain language: checks the database schema, writes and runs its own SQL query, fixes its own mistakes, and grounds the answer in real numbers. The public demo shows precomputed examples to keep costs bounded; the code runs fully live locally.",
+    fi: "Tekoälyagentti, joka vastaa liiketoimintakysymyksiin luonnollisella kielellä: tarkistaa tietokannan skeeman, kirjoittaa ja ajaa SQL-kyselyn itse, korjaa virheet itsenäisesti ja perustelee vastauksen oikeilla luvuilla. Julkinen demo näyttää esilaskettuja esimerkkejä kuluriskin hallitsemiseksi, koodi ajettavissa livenä. Agentti on rakennettu Clauden avustuksella.",
+    en: "An AI agent that answers business questions in plain language: checks the database schema, writes and runs its own SQL query, fixes its own mistakes, and grounds the answer in real numbers. The public demo shows precomputed examples to keep costs bounded; the code runs fully live locally. The agent was built with the help of Claude.",
   },
   technologies: ["Next.js API Routes", "Claude API (tool use)", "SQLite", "Node.js"],
   githubUrl: "https://github.com/codejja/portfolio26",

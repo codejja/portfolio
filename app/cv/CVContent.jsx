@@ -14,9 +14,16 @@ const content = {
     nativeLanguage: "Äidinkieli",
     english: "Englanti",
     goodLevel: "Hyvä",
+    interestsHeading: "Kiinnostuksen kohteet",
+    interests: [
+      "Datan hyödyntäminen ja analytiikka",
+      "Web ja digitaaliset ratkaisut",
+      "Visuaalinen suunnittelu",
+      "Luova teknologian hyödyntäminen",
+    ],
     education: [
       {
-        title: "Tietojenkäsittelyn tradenomi, muuntokoulutus (93 op)",
+        title: "Tietojenkäsittelyn tradenomi, muuntokoulutus",
         institution: "Hämeen ammattikorkeakoulu",
         courses: [
           "Ohjelmoinnin perusteet (Java) (4 op)",
@@ -40,7 +47,7 @@ const content = {
         date: "08/2025–",
       },
       {
-        title: "Tieto- ja viestintätekniikan täydennyskoulutus (39 op)",
+        title: "Tieto- ja viestintätekniikan täydennyskoulutus",
         institution: "Jyväskylän avoin ammattikorkeakoulu",
         courses: [
           "Johdatus data-analytiikkaan ja tekoälyyn (3 op)",
@@ -56,13 +63,18 @@ const content = {
           "InnoFlash (2 op)",
           "Tiedonhankinta ja raportointi (1 op)"
         ],
-        extra: "Keskiarvo: 4,60 / 5,00",
+        extra: "Keskiarvo: 4,60 / 5,00 (39 op)",
         date: "08/2024–05/2025",
       },
       {
         title: "Tradenomi, liiketalous ja johtaminen",
         institution: "LAB-ammattikorkeakoulu",
-        extra: "Keskiarvo: 4,15 / 5,00",
+        thesis: {
+        label: "Opinnäytetyö",
+        title: "Tekoäly tukena yritystoiminnan strategisessa ennakoinnissa",
+        url: "https://www.theseus.fi/handle/10024/851741",
+        },
+        extra: "Keskiarvo: 4,15 / 5,00 (210 op)",
         date: "01/2020–04/2024",
       },
       {
@@ -76,29 +88,48 @@ const content = {
       {
         title: "Ratkaisuasiantuntija",
         company: "Kela",
-        description:
-          "Asiantuntijatyötä työttömyysturvaetuuksien parissa. Työssä korostuu tiedon analysointi, prosessien hallinta, ongelmanratkaisu sekä erilaisten tietojärjestelmien käyttö asiakastilanteiden ratkaisemiseksi.",
+        description: [
+          "Valmistelen ja teen etuuspäätöksiä, käsittelen maksuunpanoja, perintäasioita, erilaisia toimeksiantoja ja työvoimapoliittisia lausuntoja, soveltaen muuttuvaa sosiaaliturvan lainsäädäntöä",
+          "Palvelen myös tuen tarpeessa olevia nuoria moniammatillisessa palvelumallissa, jossa huomioidaan yksilölliset ja erityisen tuen tarpeet",
+          "Käytän työssäni useita etuusjärjestelmiä ja Microsoft 365 -ympäristöä",
+          "Kommunikoin asiakkaiden, viranomaisten ja muiden sidosryhmien kanssa puhelimitse ja kirjallisesti, neuvon ja ohjaan kollegoita yleistukeen liittyvissä kysymyksissä",
+      ],
         date: "05/2020–",
       },
       {
         title: "Ravintolatyöntekijä",
         company: "Riimiravintolat Oy",
-        description:
-          "Ravintolan päivittäinen toiminta, asiakaspalvelu ja markkinointisisällön tuotanto.",
+        description: [
+          "Itsenäinen vastuu toimipisteen päivittäisestä toiminnasta, mukaan lukien avaus- ja sulkemisvuorot sekä kassan avaus, sulkeminen ja tilitys",
+          "Uusien työntekijöiden perehdytys",
+          "Asiakaspalvelu, myynti ja kassatyöskentely, erityisruokavalioiden ja allergiatietojen huomioiminen sekä asiakaspalautteiden käsittely",
+          "Tuotteiden ja ruoan valmistus sekä ravintolan siisteydestä huolehtiminen",
+          "Omavalvonta, lämpötilaseurannat ja niiden kirjaaminen",
+          "Tuotteiden tilaaminen, tavaratoimitusten vastaanotto ja tarkistus, inventaariot sekä hävikin seuranta ja kirjaaminen",
+          "Osallistuminen ravintolan markkinointiin",
+      ],
         date: "08/2019–04/2020",
       },
       {
-        title: "Elintarviketuotannon ja kahvilatoiminnan tehtävät",
-        company: "mm. Brunberg Oy ja Fazer Leipomot Oy",
-        description: "Tuotanto, laadunvalvonta ja tuotekehitys.",
+        title: "Leipuri-kondiittori",
+        company: "Fazer Leipomot Oy, Brunberg Oy, Ekberg 1852 Oy Ab, Kahvila Asemapäällikkö, Osuuskauppa Hämeenmaa",
         date: "02/2017–06/2019",
+        description: [
+          "Leipien ja leivonnaisten valmistus teollisessa leipomotuotannossa (Fazer Leipomot)",
+          "Makeisten käsityövalmistus ja linjastotyö, vastuuna tuotantoprosessin sujuvuus ja tasainen laatu (Brunberg)",
+          "Perinteisten kahvilatuotteiden sekä tilaus- ja vitriinituotteiden valmistus (Ekberg, Kahvila Asemapäällikkö)",
+          "Asiakaspalvelu ja kassatyöskentely kahvilaympäristössä (Osuuskauppa Hämeenmaa)",
+        ],
       },
       {
-        title: "Myynti- ja asiakaspalvelutehtävät",
-        company: "mm. The Wembley Store Ltd. (Malta) ja Clas Ohlson Oy",
-        description:
-          "Monipuolista myynti- ja asiakaspalvelutyötä, sisältäen kansainvälisen työjakson Maltalla.",
-        date: "08/2014–12/2015",
+        title: "Myyjä",
+        company: "Clas Ohlson Oy, The Wembley Stores Ltd, Kino 123 Oy, Kymen Seudun Osuuskauppa",
+        date: "08/2014–11/2015",
+        description: [
+          "Asiakaspalvelu, myynti ja kassatyöskentely, mukaan lukien kampanjoiden ja tarjousten esittely sekä myyntitavoitteiden seuraaminen",
+          "Tavaroiden vastaanotto, purku ja esillepano sekä varastonhallinta",
+          "Kansainvälinen työjakso Maltalla (The Wembley Stores)",
+        ],
       },
     ],
   },
@@ -112,9 +143,15 @@ const content = {
     nativeLanguage: "Native language",
     english: "English",
     goodLevel: "Good",
+    interests: [
+      "Data utilisation and analytics",
+      "Web and digital solutions",
+      "Visual design",
+      "Creative use of technology",
+  ],
     education: [
       {
-        title: "Bachelor of Business Administration (BBA), Business Information Technology — Conversion Programme (93 credits)",
+        title: "Bachelor of Business Administration (BBA), Business Information Technology — Conversion Programme",
         institution: "Häme University of Applied Sciences (HAMK)",
         courses: [
           "Basics of Programming (Java) (4 ECTS)",
@@ -138,7 +175,7 @@ const content = {
         date: "08/2025–",
       },
       {
-        title: "Continuing Education in Information and Communications Technology (42 credits)",
+        title: "Continuing Education in Information and Communications Technology",
         institution: "Jyväskylä Open University of Applied Sciences",
         courses: [
           "Introduction to Data Analytics and Artificial Intelligence (3 ECTS)",
@@ -154,13 +191,18 @@ const content = {
           "InnoFlash (2 ECTS)",
           "Information Seeking and Reporting (1 ECTS)",
         ],
-        extra: "GPA: 4.60 / 5.00",
+        extra: "GPA: 4.60 / 5.00 (39 credits)",
         date: "08/2024–05/2025",
       },
       {
         title: "Bachelor of Business Administration (BBA), Business Management",
         institution: "LAB University of Applied Sciences",
-        extra: "GPA: 4.15 / 5.00",
+        thesis: {
+        label: "Thesis",
+        title: "Tekoäly tukena yritystoiminnan strategisessa ennakoinnissa (in Finnish)",
+        url: "https://www.theseus.fi/handle/10024/851741",
+      },
+        extra: "GPA: 4.15 / 5.00 (210 credits)",
         date: "01/2020–04/2024",
       },
       {
@@ -174,29 +216,48 @@ const content = {
       {
         title: "Solutions Specialist",
         company: "Kela (Social Insurance Institution of Finland)",
-        description:
-          "Specialist work handling unemployment benefits. The role emphasizes data analysis, process management, problem-solving, and using various information systems to resolve customer cases.",
+        description: [
+          "Prepare and issue benefit decisions, process payment orders, recovery cases, various assignments and labour policy statements, applying evolving social security legislation",
+          "Serve young people in need of support within a multiprofessional service model that accounts for individual and special support needs",
+          "Use multiple benefit systems and the Microsoft 365 environment in daily work",
+          "Communicate with customers, authorities and other stakeholders by phone and in writing, and advise and guide colleagues on general support matters",
+        ],
         date: "05/2020–",
       },
       {
         title: "Restaurant Worker",
         company: "Riimiravintolat Oy",
-        description:
-          "Daily restaurant operations, customer service, and marketing content production.",
+        description: [
+          "Independently responsible for the location's daily operations, including opening and closing shifts and opening, closing and reconciling the cash register",
+          "Onboarded new employees",
+          "Customer service, sales and cashier duties, accommodating special diets and allergy information, and handling customer feedback",
+          "Food and product preparation and maintaining restaurant cleanliness",
+          "In-house food safety control, including temperature monitoring and record-keeping",
+          "Ordering products, receiving and checking deliveries, conducting inventories, and tracking and recording waste",
+          "Contributed to the restaurant's marketing",
+        ],
         date: "08/2019–04/2020",
       },
       {
-        title: "Food Production and Café Operations",
-        company: "incl. Brunberg Oy and Fazer Bakeries Oy",
-        description: "Production, quality control, and product development.",
+        title: "Baker-Confectioner",
+        company: "Fazer Leipomot Oy, Brunberg Oy, Ekberg 1852 Oy Ab, Herkku-Helmi Tmi, Kahvila Asemapäällikkö, Osuuskauppa Hämeenmaa",
         date: "02/2017–06/2019",
+        description: [
+          "Produced bread and pastries in industrial bakery production (Fazer Bakeries)",
+          "Handcrafted confectionery and worked on the production line, responsible for smooth processes and consistent quality (Brunberg)",
+          "Prepared traditional café products as well as custom orders and display products (Ekberg, Herkku-Helmi, Kahvila Asemapäällikkö)",
+          "Customer service and cashier duties in a café setting (Osuuskauppa Hämeenmaa)",
+        ],
       },
       {
-        title: "Sales and Customer Service",
-        company: "incl. The Wembley Store Ltd. (Malta) and Clas Ohlson Oy",
-        description:
-          "Varied sales and customer service work, including an international work period in Malta.",
-        date: "08/2014–12/2015",
+        title: "Sales Associate",
+        company: "Clas Ohlson Oy, The Wembley Stores Ltd, Kino 123 Oy, Kymen Seudun Osuuskauppa",
+        date: "08/2014–11/2015",
+        description: [
+          "Customer service, sales and cashier duties, including presenting campaigns and offers and meeting sales targets",
+          "Receiving, unpacking and displaying goods, and managing stock",
+          "International work period in Malta (The Wembley Stores)",
+        ],
       },
     ],
   },
@@ -236,12 +297,42 @@ export default function CVContent() {
                   <p className="mt-1 text-stone-600 dark:text-stone-400">{item.institution}</p>
 
                   {item.courses && (
-                    <p className="mt-2 text-sm leading-relaxed text-stone-500 dark:text-stone-400">
-                      {item.courses.join(" · ")}
-                    </p>
+                    <ul className="mt-3 flex flex-wrap gap-2">
+                      {item.courses.map((course) => {
+                        const match = course.match(/^(.*) \(([^()]+)\)$/);
+                        const name = match ? match[1] : course;
+                        const credits = match ? match[2] : null;
+
+                        return (
+                          <li
+                            key={course}
+                            className="rounded-md border border-stone-200 px-2.5 py-1 text-xs text-stone-600 dark:border-stone-800 dark:text-stone-400"
+                          >
+                            {name}
+                            {credits && (
+                              <span className="ml-1.5 font-mono text-stone-400 dark:text-stone-500">
+                                {credits}
+                              </span>
+                            )}
+                          </li>
+                        );
+                      })}
+                    </ul>
                   )}
-                  
-                  <p className="mt-1 text-sm text-stone-500 dark:text-stone-500">{item.extra}</p>
+{item.thesis && (
+  <p className="mt-2 text-sm text-stone-600 dark:text-stone-400">
+    {item.thesis.label}:{" "}
+    <a
+      href={item.thesis.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-accent-600 underline underline-offset-2 hover:text-accent-700 dark:text-accent-400 dark:hover:text-accent-300"
+    >
+      {item.thesis.title}
+    </a>
+  </p>
+)}
+                  <p className="mt-3 text-sm text-stone-500 dark:text-stone-500">{item.extra}</p>
                 </li>
               ))}
             </ol>
@@ -261,9 +352,18 @@ export default function CVContent() {
 
                   <h3 className="mt-2 text-lg font-semibold dark:text-white">{item.title}</h3>
                   <p className="mt-1 text-stone-600 dark:text-stone-400">{item.company}</p>
-                  <p className="mt-3 leading-relaxed text-stone-600 dark:text-stone-400">
-                    {item.description}
-                  </p>
+                  {Array.isArray(item.description) ? (
+                    <ul className="mt-3 list-disc space-y-1.5 pl-5 leading-relaxed text-stone-600 marker:text-stone-400 dark:text-stone-400 dark:marker:text-stone-600">
+                      {item.description.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="mt-3 leading-relaxed text-stone-600 dark:text-stone-400">
+                      {item.description}
+                    </p>
+                  )}
+                  
                 </li>
               ))}
             </ol>
@@ -286,7 +386,22 @@ export default function CVContent() {
               </div>
             </div>
           </section>
-        </aside>
+
+          <section className="mt-12">
+    <h2 className="text-xl font-bold text-stone-950 dark:text-white">{t.interestsHeading}</h2>
+
+    <ul className="mt-5 flex flex-wrap gap-2">
+      {t.interests.map((interest) => (
+        <li
+          key={interest}
+          className="rounded-md border border-stone-200 px-2.5 py-1 text-xs text-stone-600 dark:border-stone-800 dark:text-stone-400"
+        >
+          {interest}
+          </li>
+        ))}
+      </ul>
+    </section>
+  </aside>
       </div>
     </div>
   );
