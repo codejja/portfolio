@@ -7,7 +7,11 @@ const content = {
   heading: "Taidot",
   groups: [
     {
-      title: "Liiketoiminta & automaatio",
+      title: "Liiketoimintaosaaminen",
+      skills: ["Asiakkuudet ja markkinointi", "Prosessien kehittäminen (LEAN)", "Projektinhallinta", "Strateginen ennakointi", "Kannattavuuslaskenta", "Sidosryhmäviestintä"],
+    },
+    {
+      title: "Automaatio & Microsoft 365",
       skills: ["Microsoft 365", "Excel", "SharePoint", "Power Platform (Power Automate, Power Apps, Power BI)", "Vaatimusmäärittely", "Tekninen dokumentointi"],
     },
     {
@@ -32,7 +36,11 @@ en: {
   heading: "Skills",
   groups: [
     {
-      title: "Business & Automation",
+      title: "Business Skills",
+      skills: ["Customer Relationships & Marketing", "Process Improvement (Lean)", "Project Management", "Strategic Foresight", "Profitability Analysis", "Stakeholder Communication"],
+    },
+    {
+      title: "Automation & Microsoft 365",
       skills: ["Microsoft 365", "Excel", "SharePoint", "Power Platform (Power Automate, Power Apps, Power BI)", "Requirements Specification", "Technical Documentation"],
     },
     {
