@@ -8,7 +8,7 @@ export const portfolioSivusto = {
     en: "The site you're reading right now. A portfolio built with Next.js 16 and React 19, styled with Tailwind CSS, with a release pipeline (GitHub → Vercel) that ships every change to production automatically.",
   },
   technologies: ["Next.js", "React", "Tailwind CSS", "Claude AI", "Vercel"],
-  githubUrl: "https://github.com/codejja/portfolio26",
+  githubUrl: "https://github.com/codejja/portfolio",
   liveUrl: "#",
   hasDetail: true,
   detail: {

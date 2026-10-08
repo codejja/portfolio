@@ -11,7 +11,7 @@ export const dataAnalyysiagentti = {
     en: "An AI agent that answers business questions in plain language: checks the database schema, writes and runs its own SQL query, fixes its own mistakes, and grounds the answer in real numbers. The public demo shows precomputed examples to keep costs bounded; the code runs fully live locally. The agent was built with the help of Claude.",
   },
   technologies: ["Next.js API Routes", "Claude API (tool use)", "SQLite", "Node.js"],
-  githubUrl: "https://github.com/codejja/portfolio26",
+  githubUrl: "https://github.com/codejja/portfolio",
   liveUrl: "/lab/data-analyst-agent",
   hasDetail: true,
   detail: {
