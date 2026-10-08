@@ -43,8 +43,8 @@ const content = {
           "Analytiikkaratkaisut (Azure) (4 op)",
           "Liiketoimintajärjestelmät (5 op)",
         ],
-        extra: "Keskiarvo: 4,75 / 5,00 (60/93 op suoritettu)",
-        date: "08/2025–",
+        extra: "Keskiarvo: 4,75 / 5,00 (kurssiopinnot suoritettu, jäljellä harjoittelu ja opinnäytetyö)",
+        date: "08/2025–2027 (arvioitu valmistuminen)",
       },
       {
         title: "Tieto- ja viestintätekniikan täydennyskoulutus",
@@ -171,8 +171,8 @@ const content = {
           "Analytics Solutions (Azure) (4 ECTS)",
           "Business Information Systems (5 ECTS)",
         ],
-        extra: "GPA: 4.75 / 5.00 (60/93 credits completed)",
-        date: "08/2025–",
+        extra: "GPA: 4.75 / 5.00 (all coursework completed, internship and thesis remaining)",
+        date: "08/2025–2027 (expected graduation)",
       },
       {
         title: "Continuing Education in Information and Communications Technology",
