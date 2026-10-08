@@ -7,10 +7,10 @@ export const yhteydenottolomake = {
   },
   status: { fi: "Kurssiprojekti, ryhmätyö", en: "Course project, group work" },
   summary: {
-    fi: "Web-ohjelmoinnin ryhmäprojektissa toteutin PHP:llä ylläpitopaneelin, joka listaa tietokantaan tallentuneet yhteydenottolomakkeen viestit uusimmasta vanhimpaan. Osa laajempaa neljän hengen ryhmäprojektia, jossa koko lomake-tallennus-ylläpito-ketju rakennettiin PHP:llä ja MySQL:llä.",
-    en: "In a group web-programming project I built the PHP admin panel that lists contact-form submissions stored in the database, newest first. Part of a larger four-person group project where the whole form-storage-admin chain was built with PHP and MySQL.",
+    fi: "Web-ohjelmoinnin ryhmäprojektissa toteutin PHP:llä ylläpitopaneelin, joka listaa tietokantaan tallentuneet yhteydenottolomakkeen viestit uusimmasta vanhimpaan. Osa laajempaa neljän hengen ryhmäprojektia, jossa koko lomake-tallennus-ylläpito-ketju rakennettiin PHP:llä ja MySQL:llä. Projekti toteutettiin Scrum-työtavalla Jiraa ja Confluencea hyödyntäen, ja sivustolle laadittiin vaatimusmäärittely.",
+    en: "In a group web-programming project I built the PHP admin panel that lists contact-form submissions stored in the database, newest first. Part of a larger four-person group project where the whole form-storage-admin chain was built with PHP and MySQL. The project was run using Scrum with Jira and Confluence, and a requirements specification was written for the site.",
   },
-  technologies: ["PHP", "MySQL", "JavaScript (Fetch API)", "HTML/CSS"],
+  technologies: ["PHP", "MySQL", "JavaScript (Fetch API)", "HTML/CSS", "Scrum", "Jira", "Confluence"],
   githubUrl: "#",
   liveUrl: "#",
   hasDetail: true,
@@ -51,13 +51,13 @@ export const yhteydenottolomake = {
         en: "The admin panel shows each message's sender, email, and timestamp in one view, with edit and delete links.",
       },
       {
-        fi: "Ryhmätyö jaettiin selkeästi neljän hengen kesken (lomakkeen tallennus, ylläpitopaneeli, muokkaus/poisto, navigointi), ja työnjako dokumentoitiin omalle sivulleen.",
-        en: "The group work was clearly split across four people (form storage, admin panel, edit/delete, navigation), and the task division was documented on its own page.",
+        fi: "Ryhmätyö toteutettiin Scrum-työtavalla: tehtävät jaettiin neljän hengen kesken (lomakkeen tallennus, ylläpitopaneeli, muokkaus/poisto, navigointi) ja niitä seurattiin Jirassa. Sivustolle laadittiin vaatimusmäärittely, ja dokumentaatio sekä työnjako koottiin Confluenceen.",
+        en: "The group work followed Scrum: tasks were split across four people (form storage, admin panel, edit/delete, navigation) and tracked in Jira. A requirements specification was written for the site, and the documentation and task division were compiled in Confluence.",
       },
     ],
     reflection: {
-      fi: "Jatkokehityksenä tietokantatunnukset siirtäisin pois suoraan koodista ympäristömuuttujiin, ja .htaccess-suojauksen sijaan rakentaisin oikean kirjautumisen istunnonhallinnalla.",
-      en: "As a next step, I'd move the database credentials out of the code into environment variables, and replace the .htaccess protection with a proper login using session management.",
+      fi: "Jatkokehityksenä siirtäisin tietokantatunnukset pois koodista ympäristömuuttujiin, jotta ne eivät päädy versionhallintaan. .htaccess-suojauksen tilalle rakentaisin oikean kirjautumisen istunnonhallinnalla ja salasanatiivisteillä, jolloin käyttäjillä voisi olla omat tunnukset ja uloskirjautuminen toimisi luotettavasti.",
+      en: "As a next step, I'd move the database credentials out of the code into environment variables so they never end up in version control. Instead of .htaccess protection, I'd build a proper login with session management and password hashing, so users could have their own accounts and logout would work reliably.",
     },
     images: [
       { src: "/images/projects/yhteydenottolomake/01-yhteydenottolomake.jpg", alt: { fi: "Yhteydenottolomake käyttäjän näkymässä", en: "The contact form from the user's view" } },

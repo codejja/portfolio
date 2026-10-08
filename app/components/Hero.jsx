@@ -9,8 +9,8 @@ const text = {
     label: "Portfolio",
     role: "Yhdistän datan, teknologian ja visuaalisen toteutuksen",
     description: [
-      "Taustani on liiketaloudessa ja asiantuntijatyössä, ja olen täydentänyt osaamistani IT-alan opinnoilla. Minua kiinnostaa erityisesti datan hyödyntäminen liiketoiminnan kehittämisessä, prosessien automatisointi ja teknologian käyttäminen työn sujuvoittamiseen.",
-      "Olen rakentanut osaamistani muun muassa Power Platformin, SQL:n ja web-kehityksen parissa sekä hyödyntänyt tekoälyä osana tekemistäni. Teknisen puolen lisäksi minua kiinnostaa visuaalinen suunnittelu ja digitaalisten palveluiden toteuttaminen.",
+      "Taustani on liiketaloudessa ja asiakaslähtöisessä asiantuntijatyössä, ja olen täydentänyt osaamistani IT-alan opinnoilla. Minua kiinnostaa erityisesti datan hyödyntäminen liiketoiminnan kehittämisessä, prosessien automatisointi ja teknologian käyttäminen työn sujuvoittamiseen.",
+      "Olen kartuttanut osaamistani muun muassa Power Platformin, SQL:n ja web-kehityksen parissa sekä rakentanut tekoälyratkaisuja osana projektejani. Teknisen puolen lisäksi minua kiinnostavat visuaalinen suunnittelu, digitaalinen markkinointi ja asiakaslähtöisten digitaalisten palveluiden toteuttaminen.",
       "Tavoitteeni on yhdistää liiketoiminnan ymmärrys ja teknologia sekä hyödyntää dataa, analytiikkaa ja automaatiota liiketoiminnan kehittämisessä.",
       "Vapaa-ajalla mm. maantiepyöräilen, kuvaan dronella, käyn kuntosalilla ja pelaan sulkapalloa tai padelia.",
     ],
@@ -21,8 +21,8 @@ const text = {
     label: "Portfolio",
     role: "I bring data, technology and visual execution together.",
     description: [
-      "My background is in business and specialist work, and I have complemented my experience with studies in IT. I’m particularly interested in using data to support business development, automating processes, and using technology to make work more efficient.",
-      "I have developed my skills in areas such as Power Platform, SQL, and web development, while also using AI as part of my work. Alongside the technical side, I’m interested in visual design and creating digital services.",
+      "My background is in business and customer-focused specialist work, and I have complemented my experience with studies in IT. I’m particularly interested in using data to support business development, automating processes, and using technology to make work more efficient.",
+      "I have built my skills in areas such as Power Platform, SQL, and web development, and have built AI solutions as part of my projects. Alongside the technical side, I’m interested in visual design, digital marketing, and creating customer-centric digital services.",
       "My goal is to combine business understanding with technology and use data, analytics, and automation to support business development.",
       "Outside of work and studies, I enjoy road cycling, drone photography, going to the gym, and playing badminton or padel.",
     ],
@@ -35,7 +35,7 @@ export default function Hero() {
   const { lang } = useLanguage();
   const t = text[lang];
 
-  const skills = ["Business Understanding", "Data Analytics", "Automation", "Systems & Integrations", "Web & Visual Design", "Applied AI"];
+  const skills = ["Business Understanding", "Data Analytics", "Automation", "Systems & Integrations", "Web & Visual Design", "Customer Experience", "Applied AI"];
 
   return (
     <section className="py-6">
